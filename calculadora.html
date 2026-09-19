@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Calculadora · Modelos de Transporte</title>
+<meta name="description" content="Calculadora del modelo de transporte: Esquina Noroeste, Costo Mínimo y Vogel.">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🚚</text></svg>">
+<link rel="stylesheet" href="assets/css/estilos.css">
+</head>
+<body data-base="">
+
+<header class="barra">
+  <div class="envoltura">
+    <a class="marca" href="index.html"><span class="punto"></span>Modelos de Transporte</a>
+    <nav>
+      <a href="planteamiento.html">Planteamiento</a>
+      <a href="esquina-noroeste.html">Noroeste</a>
+      <a href="costo-minimo.html">Costo mínimo</a>
+      <a href="vogel.html">Vogel</a>
+      <a href="comparacion.html">Comparación</a>
+      <a href="calculadora.html" aria-current="page">Calculadora</a>
+      <a href="documentacion.html">Documentación</a>
+      <button class="boton-tema" type="button" aria-label="Cambiar tema">☾</button>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <section class="encabezado-item">
+    <div class="envoltura">
+      <a class="volver" href="index.html">← Volver a la página principal</a>
+      <h1>Calculadora interactiva</h1>
+      <p class="resumen">Cambia los costos, las ofertas o las demandas y el sistema vuelve a resolver el modelo con los tres métodos.</p>
+    </div>
+  </section>
+
+  <section class="seccion">
+    <div class="envoltura">
+      <div class="panel">
+        <h3>Datos del modelo</h3>
+        <p class="intro">Puedes editar cualquier casilla: nombres, costos, ofertas y demandas.
+           También puedes agregar o quitar filas y columnas.</p>
+
+        <div class="controles">
+          <button class="boton" type="button" id="btn-mas-fila">+ Origen</button>
+          <button class="boton" type="button" id="btn-menos-fila">− Origen</button>
+          <button class="boton" type="button" id="btn-mas-columna">+ Destino</button>
+          <button class="boton" type="button" id="btn-menos-columna">− Destino</button>
+        </div>
+
+        <div id="editor"><p class="cargando">Cargando…</p></div>
+        <p id="aviso-balance" class="aviso" style="display:none;margin-top:16px"></p>
+
+        <div class="controles" style="margin-top:18px">
+          <button class="boton primario" type="button" id="btn-resolver">Resolver</button>
+          <button class="boton" type="button" id="btn-restablecer">Restablecer datos originales</button>
+          <button class="boton" type="button" id="btn-descargar">Descargar datos.json</button>
+        </div>
+        <p style="font-size:.85rem;color:var(--texto-suave);margin-top:10px">
+           Si el problema no queda balanceado, el sistema agrega automáticamente un origen o un
+           destino ficticio con costo 0 antes de resolver.</p>
+      </div>
+
+      <div id="resultados"></div>
+    </div>
+  </section>
+</main>
+
+<footer class="pie">
+  <div class="envoltura">Modelos de Transporte · Investigación de Operaciones · <a href="index.html">Página principal</a></div>
+</footer>
+
+<script src="assets/js/config.js"></script>
+<script src="assets/js/transporte.js"></script>
+<script src="assets/js/interfaz.js"></script>
+<script src="assets/js/calculadora.js"></script>
+</body>
+</html>

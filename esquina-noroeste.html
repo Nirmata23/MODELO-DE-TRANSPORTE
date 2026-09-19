@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Esquina Noroeste · Modelos de Transporte</title>
+<meta name="description" content="Solución inicial del modelo de transporte por el método de la Esquina Noroeste.">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🚚</text></svg>">
+<link rel="stylesheet" href="assets/css/estilos.css">
+</head>
+<body data-base="" data-metodo="esquinaNoroeste">
+
+<header class="barra">
+  <div class="envoltura">
+    <a class="marca" href="index.html"><span class="punto"></span>Modelos de Transporte</a>
+    <nav>
+      <a href="planteamiento.html">Planteamiento</a>
+      <a href="esquina-noroeste.html" aria-current="page">Noroeste</a>
+      <a href="costo-minimo.html">Costo mínimo</a>
+      <a href="vogel.html">Vogel</a>
+      <a href="comparacion.html">Comparación</a>
+      <a href="calculadora.html">Calculadora</a>
+      <a href="documentacion.html">Documentación</a>
+      <button class="boton-tema" type="button" aria-label="Cambiar tema">☾</button>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <section class="encabezado-item">
+    <div class="envoltura">
+      <a class="volver" href="index.html">← Volver a la página principal</a>
+      <h1>Esquina Noroeste</h1>
+      <p class="resumen">Primer procedimiento. Se parte de la celda superior izquierda y se avanza en escalera hasta agotar todas las ofertas y demandas.</p>
+    </div>
+  </section>
+
+  <section class="seccion">
+    <div class="envoltura">
+      <div class="panel">
+        <h3>Cómo funciona</h3>
+        <ol class="pasos">
+          <li><strong>Empezar arriba a la izquierda</strong>
+              <span>Se toma la celda de la esquina noroeste de la tabla, sin mirar su costo.</span></li>
+          <li><strong>Asignar todo lo que se pueda</strong>
+              <span>Se coloca el menor valor entre la oferta de la fila y la demanda de la columna.</span></li>
+          <li><strong>Tachar la línea que se agotó</strong>
+              <span>Si se acabó la oferta se tacha la fila; si se acabó la demanda se tacha la columna.</span></li>
+          <li><strong>Repetir</strong>
+              <span>Se vuelve a la nueva esquina noroeste del tablero restante hasta terminar.</span></li>
+        </ol>
+        <p style="margin-top:16px;font-size:.92rem;color:var(--texto-suave)">
+           Es el método más rápido de aplicar, pero no toma en cuenta los costos, así que
+           normalmente entrega la solución inicial más cara de las tres.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="seccion">
+    <div class="envoltura">
+      <div class="panel">
+        <h3>Tabla de asignación</h3>
+        <p class="intro">Las celdas resaltadas son las que reciben unidades; abajo de cada una se
+           muestra su costo unitario.</p>
+        <div id="tabla-solucion"><p class="cargando">Calculando…</p></div>
+        <p style="margin:16px 0 0">Costo total del método: <span id="costo-total">…</span></p>
+        <p style="font-size:.88rem;color:var(--texto-suave);margin-top:4px">
+           Celdas básicas ocupadas: <strong data-celdas>…</strong>.</p>
+      </div>
+
+      <div class="panel">
+        <h3>Asignaciones en orden</h3>
+        <p class="intro">Cada línea es una asignación del método, en el orden en que se realizó.</p>
+        <div id="bitacora"><p class="cargando">Calculando…</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="seccion">
+    <div class="envoltura">
+      <h2>Evidencia del procedimiento</h2>
+      <p class="intro">Hojas de trabajo del grupo. Haz clic en cualquier imagen para verla completa.</p>
+      <div data-galeria="esquina-noroeste"></div>
+    </div>
+  </section>
+</main>
+
+<footer class="pie">
+  <div class="envoltura">Modelos de Transporte · Investigación de Operaciones · <a href="index.html">Página principal</a></div>
+</footer>
+
+<script src="assets/js/config.js"></script>
+<script src="assets/js/transporte.js"></script>
+<script src="assets/js/interfaz.js"></script>
+<script src="assets/js/galeria.js"></script>
+</body>
+</html>

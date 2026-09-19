@@ -1,0 +1,23 @@
+{
+  "titulo": "Distribución de paquetería por empresa de mensajería",
+  "descripcion": "Cinco departamentos deben repartir su paquetería entre seis empresas de mensajería. Cada celda es el costo unitario en quetzales (Q) de enviar desde el departamento por medio de esa empresa.",
+  "unidad": "Q",
+  "rotuloOrigenes": "Departamento",
+  "rotuloDestinos": "Paquetería",
+  "origenes": ["Guatemala", "Chimaltenango", "Sacatepéquez", "Petén", "Jalapa"],
+  "destinos": ["Forza", "Guatex", "Envía Guatemala", "Cargo Express", "Telomando", "Henma Express"],
+  "costos": [
+    [57.50, 63.00, 25.00, 38.50, 74.00, 50.00],
+    [65.50, 63.00, 55.00, 53.50, 72.01, 75.00],
+    [65.50, 63.00, 55.00, 53.50, 72.50, 50.00],
+    [83.50, 88.00, 95.00, 75.50, 72.01, 100.00],
+    [69.50, 68.00, 85.00, 60.50, 72.01, 90.00]
+  ],
+  "ofertas": [30, 40, 35, 25, 20],
+  "demandas": [20, 25, 15, 30, 35, 25],
+  "resultadosEsperados": {
+    "Esquina Noroeste": 9982.70,
+    "Costo Mínimo": 8450.35,
+    "Aproximación de Vogel": 8450.35
+  }
+}

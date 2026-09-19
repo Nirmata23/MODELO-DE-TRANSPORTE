@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Comparación · Modelos de Transporte</title>
+<meta name="description" content="Comparación entre Esquina Noroeste, Costo Mínimo y Aproximación de Vogel.">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🚚</text></svg>">
+<link rel="stylesheet" href="assets/css/estilos.css">
+</head>
+<body data-base="">
+
+<header class="barra">
+  <div class="envoltura">
+    <a class="marca" href="index.html"><span class="punto"></span>Modelos de Transporte</a>
+    <nav>
+      <a href="planteamiento.html">Planteamiento</a>
+      <a href="esquina-noroeste.html">Noroeste</a>
+      <a href="costo-minimo.html">Costo mínimo</a>
+      <a href="vogel.html">Vogel</a>
+      <a href="comparacion.html" aria-current="page">Comparación</a>
+      <a href="calculadora.html">Calculadora</a>
+      <a href="documentacion.html">Documentación</a>
+      <button class="boton-tema" type="button" aria-label="Cambiar tema">☾</button>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <section class="encabezado-item">
+    <div class="envoltura">
+      <a class="volver" href="index.html">← Volver a la página principal</a>
+      <h1>Comparación de los tres métodos</h1>
+      <p class="resumen">Los tres costos totales frente a frente, calculados sobre los mismos datos.</p>
+    </div>
+  </section>
+
+  <section class="seccion">
+    <div class="envoltura">
+      <div id="comparacion"><p class="cargando">Calculando los tres métodos…</p></div>
+
+      <div class="panel" style="margin-top:20px">
+        <h3>Lectura de los resultados</h3>
+        <p>Los tres métodos entregan una <strong>solución inicial factible</strong>: reparten
+           exactamente toda la oferta y cubren toda la demanda. La diferencia está en qué tan
+           cerca quedan del costo óptimo.</p>
+        <ul>
+          <li><strong>Esquina Noroeste</strong> no mira los costos, sólo la posición, así que
+              resulta la más cara.</li>
+          <li><strong>Costo Mínimo</strong> sí atiende los costos y baja el total de forma
+              notable.</li>
+          <li><strong>Vogel</strong> añade las penalizaciones para anticipar dónde saldría caro
+              equivocarse; es la mejor aproximación inicial de las tres.</li>
+        </ul>
+        <p style="font-size:.9rem;color:var(--texto-suave)">Para este problema, Costo Mínimo y
+           Vogel llegan a la misma asignación, y por lo tanto al mismo costo total.</p>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="pie">
+  <div class="envoltura">Modelos de Transporte · Investigación de Operaciones · <a href="index.html">Página principal</a></div>
+</footer>
+
+<script src="assets/js/config.js"></script>
+<script src="assets/js/transporte.js"></script>
+<script src="assets/js/interfaz.js"></script>
+<script src="assets/js/comparacion.js"></script>
+</body>
+</html>

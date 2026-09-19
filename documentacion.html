@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Documentación · Modelos de Transporte</title>
+<meta name="description" content="Documentación del proyecto de modelos de transporte.">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🚚</text></svg>">
+<link rel="stylesheet" href="assets/css/estilos.css">
+</head>
+<body data-base="">
+
+<header class="barra">
+  <div class="envoltura">
+    <a class="marca" href="index.html"><span class="punto"></span>Modelos de Transporte</a>
+    <nav>
+      <a href="planteamiento.html">Planteamiento</a>
+      <a href="esquina-noroeste.html">Noroeste</a>
+      <a href="costo-minimo.html">Costo mínimo</a>
+      <a href="vogel.html">Vogel</a>
+      <a href="comparacion.html">Comparación</a>
+      <a href="calculadora.html">Calculadora</a>
+      <a href="documentacion.html" aria-current="page">Documentación</a>
+      <button class="boton-tema" type="button" aria-label="Cambiar tema">☾</button>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <section class="encabezado-item">
+    <div class="envoltura">
+      <a class="volver" href="index.html">← Volver a la página principal</a>
+      <h1>Documentación y evidencia</h1>
+      <p class="resumen">Presentación del grupo, el procedimiento hecho a mano y el código que resuelve el modelo.</p>
+    </div>
+  </section>
+
+  <section class="seccion">
+    <div class="envoltura">
+      <div class="panel">
+        <h3>Sobre el proyecto</h3>
+        <p>Este sitio documenta el procedimiento para resolver el problema de transporte planteado
+           por el catedrático. El modelo se resolvió a mano con tres métodos de solución inicial
+           y después se programó para comprobar los resultados.</p>
+        <p>Los valores que aparecen en todas las páginas <strong>no están escritos a mano en el
+           sitio</strong>: se calculan en el momento a partir del archivo
+           <code>datos.json</code>, con el mismo algoritmo en JavaScript y en Python. Los tres
+           métodos reproducen exactamente los totales obtenidos en las hojas de trabajo.</p>
+        <div class="tabla-scroll">
+          <table class="matriz">
+            <thead><tr><th>Método</th><th>Resultado a mano</th><th>Resultado del programa</th></tr></thead>
+            <tbody>
+              <tr><th>Esquina Noroeste</th><td>Q9,982.70</td><td class="asignada">Q9,982.70</td></tr>
+              <tr><th>Costo Mínimo</th><td>Q8,450.35</td><td class="asignada">Q8,450.35</td></tr>
+              <tr><th>Aproximación de Vogel</th><td>Q8,450.35</td><td class="asignada">Q8,450.35</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <div class="panel">
+        <h3>Integrantes</h3>
+        <div class="integrantes">
+          <div class="integrante"><div class="avatar">AC</div><div><div class="nombre">Andy Giancarlo Choreque Gómez</div><div class="carne">0910-24-9155</div></div></div>
+          <div class="integrante"><div class="avatar">BR</div><div><div class="nombre">Bryan David Ramírez Gutiérrez</div><div class="carne">0910-24-8939</div></div></div>
+          <div class="integrante"><div class="avatar">JG</div><div><div class="nombre">Jefferson Emilio Gómez López</div><div class="carne">0910-24-6598</div></div></div>
+          <div class="integrante"><div class="avatar">KQ</div><div><div class="nombre">Kevin Daniel Quexel Sal</div><div class="carne">0910-24-8217</div></div></div>
+          <div class="integrante"><div class="avatar">MI</div><div><div class="nombre">Maycol Alfredo Inay Ovalle</div><div class="carne">0910-24-9760</div></div></div>
+        </div>
+      </div>
+
+      <div class="panel">
+        <h3>Programa en Python</h3>
+        <p>El mismo modelo resuelto desde la consola, útil para comprobar los resultados sin
+           abrir el navegador:</p>
+        <pre style="overflow-x:auto;background:var(--superficie-2);border:1px solid var(--borde);border-radius:10px;padding:14px;font-size:.85rem"><code>python3 python/transporte.py            # resuelve con los tres métodos
+python3 python/transporte.py --metodo vogel
+python3 python/transporte.py --json     # salida en JSON
+python3 python/pruebas.py               # comprueba contra las hojas</code></pre>
+      </div>
+    </div>
+  </section>
+
+  <section class="seccion">
+    <div class="envoltura">
+      <h2>Otras evidencias</h2>
+      <p class="intro">Material adicional del proyecto.</p>
+      <div data-galeria="documentacion"></div>
+    </div>
+  </section>
+</main>
+
+<footer class="pie">
+  <div class="envoltura">Modelos de Transporte · Investigación de Operaciones · <a href="index.html">Página principal</a></div>
+</footer>
+
+<script src="assets/js/config.js"></script>
+<script src="assets/js/transporte.js"></script>
+<script src="assets/js/interfaz.js"></script>
+<script src="assets/js/galeria.js"></script>
+</body>
+</html>

@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Método de Vogel · Modelos de Transporte</title>
+<meta name="description" content="Solución inicial del modelo de transporte por el método de Aproximación de Vogel.">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🚚</text></svg>">
+<link rel="stylesheet" href="assets/css/estilos.css">
+</head>
+<body data-base="" data-metodo="vogel">
+
+<header class="barra">
+  <div class="envoltura">
+    <a class="marca" href="index.html"><span class="punto"></span>Modelos de Transporte</a>
+    <nav>
+      <a href="planteamiento.html">Planteamiento</a>
+      <a href="esquina-noroeste.html">Noroeste</a>
+      <a href="costo-minimo.html">Costo mínimo</a>
+      <a href="vogel.html" aria-current="page">Vogel</a>
+      <a href="comparacion.html">Comparación</a>
+      <a href="calculadora.html">Calculadora</a>
+      <a href="documentacion.html">Documentación</a>
+      <button class="boton-tema" type="button" aria-label="Cambiar tema">☾</button>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <section class="encabezado-item">
+    <div class="envoltura">
+      <a class="volver" href="index.html">← Volver a la página principal</a>
+      <h1>Método de Aproximación de Vogel</h1>
+      <p class="resumen">Tercer procedimiento. Usa penalizaciones por fila y por columna para decidir dónde asignar primero.</p>
+    </div>
+  </section>
+
+  <section class="seccion">
+    <div class="envoltura">
+      <div class="panel">
+        <h3>Cómo funciona</h3>
+        <ol class="pasos">
+          <li><strong>Calcular las penalizaciones</strong>
+              <span>En cada fila y en cada columna viva se restan los dos costos más bajos.
+                    Esa diferencia es lo que costaría <em>no</em> usar la celda más barata.</span></li>
+          <li><strong>Elegir la penalización mayor</strong>
+              <span>Se atiende primero la fila o columna con la diferencia más grande, porque es
+                    donde equivocarse sale más caro.</span></li>
+          <li><strong>Asignar en su celda más barata</strong>
+              <span>Dentro de esa fila o columna se asigna lo máximo posible en la celda de menor costo.</span></li>
+          <li><strong>Recalcular y repetir</strong>
+              <span>Se tacha la línea agotada y se vuelven a calcular las penalizaciones con lo que queda.</span></li>
+        </ol>
+        <p style="margin-top:16px;font-size:.92rem;color:var(--texto-suave)">
+           Es el método que más trabajo cuesta a mano, pero suele dar la solución inicial más
+           cercana al óptimo.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="seccion">
+    <div class="envoltura">
+      <div class="panel">
+        <h3>Tabla de asignación</h3>
+        <p class="intro">Las celdas resaltadas son las que reciben unidades; abajo de cada una se
+           muestra su costo unitario.</p>
+        <div id="tabla-solucion"><p class="cargando">Calculando…</p></div>
+        <p style="margin:16px 0 0">Costo total del método: <span id="costo-total">…</span></p>
+        <p style="font-size:.88rem;color:var(--texto-suave);margin-top:4px">
+           Celdas básicas ocupadas: <strong data-celdas>…</strong>.</p>
+      </div>
+
+      <div class="panel">
+        <h3>Asignaciones en orden</h3>
+        <p class="intro">Cada línea es una asignación del método, en el orden en que se realizó.</p>
+        <div id="bitacora"><p class="cargando">Calculando…</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="seccion">
+    <div class="envoltura">
+      <h2>Evidencia del procedimiento</h2>
+      <p class="intro">Hojas de trabajo del grupo. Haz clic en cualquier imagen para verla completa.</p>
+      <div data-galeria="vogel"></div>
+    </div>
+  </section>
+</main>
+
+<footer class="pie">
+  <div class="envoltura">Modelos de Transporte · Investigación de Operaciones · <a href="index.html">Página principal</a></div>
+</footer>
+
+<script src="assets/js/config.js"></script>
+<script src="assets/js/transporte.js"></script>
+<script src="assets/js/interfaz.js"></script>
+<script src="assets/js/galeria.js"></script>
+</body>
+</html>
