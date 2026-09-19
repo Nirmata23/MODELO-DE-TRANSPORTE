@@ -1,0 +1,35 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "Abrir el sitio (servidor local)",
+      "type": "shell",
+      "command": "python3 -m http.server 8000",
+      "windows": { "command": "py -m http.server 8000" },
+      "isBackground": true,
+      "problemMatcher": [],
+      "group": { "kind": "build", "isDefault": true },
+      "presentation": { "reveal": "always", "panel": "dedicated" },
+      "detail": "Levanta el sitio en http://localhost:8000"
+    },
+    {
+      "label": "Resolver con los tres métodos",
+      "type": "shell",
+      "command": "python3 python/transporte.py",
+      "windows": { "command": "py python/transporte.py" },
+      "problemMatcher": [],
+      "presentation": { "reveal": "always", "panel": "dedicated" },
+      "detail": "Esquina Noroeste, Costo Mínimo y Vogel en la terminal"
+    },
+    {
+      "label": "Correr las comprobaciones",
+      "type": "shell",
+      "command": "python3 python/pruebas.py",
+      "windows": { "command": "py python/pruebas.py" },
+      "problemMatcher": [],
+      "group": { "kind": "test", "isDefault": true },
+      "presentation": { "reveal": "always", "panel": "dedicated" },
+      "detail": "Verifica los resultados contra las hojas del grupo"
+    }
+  ]
+}

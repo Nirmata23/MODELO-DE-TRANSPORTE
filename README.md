@@ -120,16 +120,31 @@ En Windows, si `python3` no existe, usar `py -m http.server 8000`.
 
 **Opción 2 — desde Visual Studio Code:**
 
-1. Abrir la carpeta del proyecto: *File → Open Folder…*
-2. Instalar la extensión **Live Server** (de Ritwick Dey) desde el panel de
-   extensiones.
-3. Clic derecho sobre `index.html` → **Open with Live Server**.
+El proyecto ya trae la carpeta `.vscode` configurada, así que no hay que armar
+nada. Al abrir la carpeta en VS Code (*File → Open Folder…*) aparecen tres
+tareas listas.
 
-Se abre solo en el navegador y se recarga cada vez que se guarda un archivo.
+Para **ver el sitio**, dos caminos:
 
-> Con Live Server las galerías cargan desde el repositorio publicado en GitHub.
-> Si no hay internet, usan el respaldo `lista.json` de cada carpeta y las fotos
-> se ven igual porque están incluidas en el proyecto.
+- *Terminal → Run Task… → Abrir el sitio (servidor local)* y luego entrar a
+  `http://localhost:8000`.
+- O instalar la extensión **Live Server** (VS Code la sugiere solo al abrir el
+  proyecto), clic derecho en `index.html` → **Open with Live Server**. También
+  aparece un botón **Go Live** abajo a la derecha.
+
+Para **correr el programa de Python**, cualquiera de estas:
+
+- Abrir `python/transporte.py` y pulsar el botón ▶ de la esquina superior
+  derecha.
+- O la pestaña **Run and Debug** (Ctrl+Shift+D) → *Resolver el modelo* → F5.
+- O *Terminal → Run Task… → Resolver con los tres métodos*.
+
+Para **comprobar los resultados**: *Terminal → Run Task… → Correr las
+comprobaciones*.
+
+> El botón ▶ sobre `index.html` no sirve: es para ejecutar programas, no para
+> abrir páginas. El sitio se ve con Live Server o con la tarea del servidor.
+
 
 ## Publicar
 

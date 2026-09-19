@@ -1,0 +1,21 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "Resolver el modelo",
+      "type": "debugpy",
+      "request": "launch",
+      "program": "${workspaceFolder}/python/transporte.py",
+      "console": "integratedTerminal",
+      "cwd": "${workspaceFolder}"
+    },
+    {
+      "name": "Correr las comprobaciones",
+      "type": "debugpy",
+      "request": "launch",
+      "program": "${workspaceFolder}/python/pruebas.py",
+      "console": "integratedTerminal",
+      "cwd": "${workspaceFolder}"
+    }
+  ]
+}
