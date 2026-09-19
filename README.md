@@ -78,13 +78,31 @@ No necesita instalar nada: sólo Python 3.
 
 ## Ver el sitio en la computadora
 
-Las páginas leen `datos.json`, así que hay que servirlas por HTTP (abrir el
-archivo directamente con doble clic no funciona):
+Las páginas leen `datos.json`, así que hay que servirlas por HTTP. **Abrir
+`index.html` con doble clic no funciona**: el navegador bloquea la lectura del
+archivo de datos y las tablas salen vacías.
+
+**Opción 1 — desde la terminal** (no requiere instalar nada):
 
 ```bash
 python3 -m http.server 8000
 # luego abrir http://localhost:8000
 ```
+
+En Windows, si `python3` no existe, usar `py -m http.server 8000`.
+
+**Opción 2 — desde Visual Studio Code:**
+
+1. Abrir la carpeta del proyecto: *File → Open Folder…*
+2. Instalar la extensión **Live Server** (de Ritwick Dey) desde el panel de
+   extensiones.
+3. Clic derecho sobre `index.html` → **Open with Live Server**.
+
+Se abre solo en el navegador y se recarga cada vez que se guarda un archivo.
+
+> Con Live Server las galerías cargan desde el repositorio publicado en GitHub.
+> Si no hay internet, usan el respaldo `lista.json` de cada carpeta y las fotos
+> se ven igual porque están incluidas en el proyecto.
 
 ## Publicar
 
