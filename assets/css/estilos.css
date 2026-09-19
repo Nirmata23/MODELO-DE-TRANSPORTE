@@ -93,11 +93,7 @@ a { color: var(--acento); }
   font-weight: 700; letter-spacing: -.02em; text-decoration: none; color: var(--texto);
   display: inline-flex; align-items: center; gap: 9px; font-size: 1rem;
 }
-.marca .punto {
-  width: 11px; height: 11px; border-radius: 50%;
-  background: linear-gradient(135deg, var(--acento), var(--acento-2));
-  box-shadow: 0 0 0 4px var(--acento-suave);
-}
+.marca .logo { width: 27px; height: 27px; flex-shrink: 0; }
 .barra nav { margin-left: auto; display: flex; gap: 4px; flex-wrap: wrap; align-items: center; }
 .barra nav a {
   text-decoration: none; color: var(--texto-suave); font-size: .9rem; font-weight: 500;
@@ -129,6 +125,24 @@ a { color: var(--acento); }
   -webkit-background-clip: text; background-clip: text; color: transparent;
 }
 .portada p { color: var(--texto-suave); max-width: 660px; margin: 0 auto; font-size: 1.05rem; }
+
+/* ---------- Cifras de la portada ---------- */
+.cifras {
+  display: grid; gap: 12px; margin: 30px auto 0; max-width: 860px;
+  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+}
+.cifra {
+  background: var(--superficie); border: 1px solid var(--borde);
+  border-radius: var(--radio-sm); padding: 15px 14px; text-align: center;
+}
+.cifra .valor {
+  font-family: var(--mono); font-size: 1.32rem; font-weight: 800;
+  letter-spacing: -.03em; color: var(--acento);
+}
+.cifra .rotulo {
+  font-size: .76rem; color: var(--texto-suave); text-transform: uppercase;
+  letter-spacing: .07em; font-weight: 600; margin-top: 3px;
+}
 
 /* ---------- Botonera principal ---------- */
 .rejilla-botones {
@@ -368,6 +382,10 @@ table.editable input.etiqueta-texto { width: 128px; text-align: left; font-famil
 footer.pie {
   border-top: 1px solid var(--borde); margin-top: 40px; padding: 26px 0 40px;
   color: var(--texto-suave); font-size: .86rem; text-align: center;
+}
+
+.nota-ficticia {
+  margin-top: 10px; font-size: .78rem; opacity: .75;
 }
 
 @media (max-width: 540px) {

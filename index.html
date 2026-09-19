@@ -3,17 +3,18 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Modelos de Transporte</title>
-<meta name="description" content="Resolución del modelo de transporte por Esquina Noroeste, Costo Mínimo y Aproximación de Vogel.">
-<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🚚</text></svg>">
+<title>GuateNet · Modelos de Transporte</title>
+<meta name="description" content="Proyecto de Investigación de Operaciones: GuateNet resuelve la asignación semanal de sus envíos con los métodos de Esquina Noroeste, Costo Mínimo y Vogel.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='9' fill='%232f5bea'/%3E%3Cpath d='M16 10.5v5M16 15.5l-5 5.5M16 15.5l5 5.5' stroke='white' stroke-width='1.7' stroke-linecap='round' fill='none'/%3E%3Ccircle cx='16' cy='9' r='2.5' fill='white'/%3E%3Ccircle cx='10.5' cy='22.5' r='2.5' fill='white'/%3E%3Ccircle cx='21.5' cy='22.5' r='2.5' fill='white'/%3E%3C/svg%3E">
 <link rel="stylesheet" href="assets/css/estilos.css">
 </head>
 <body data-base="">
 
 <header class="barra">
   <div class="envoltura">
-    <a class="marca" href="index.html"><span class="punto"></span>Modelos de Transporte</a>
+    <a class="marca" href="index.html"><svg class="logo" viewBox="0 0 32 32" aria-hidden="true"><defs><linearGradient id="lg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#2f5bea"/><stop offset="1" stop-color="#0ea47a"/></linearGradient></defs><rect width="32" height="32" rx="9" fill="url(#lg)"/><path d="M16 10.5v5M16 15.5l-5 5.5M16 15.5l5 5.5" stroke="#fff" stroke-width="1.7" stroke-linecap="round" fill="none"/><circle cx="16" cy="9" r="2.5" fill="#fff"/><circle cx="10.5" cy="22.5" r="2.5" fill="#fff"/><circle cx="21.5" cy="22.5" r="2.5" fill="#fff"/></svg><span>GuateNet</span></a>
     <nav>
+      <a href="empresa.html">Empresa</a>
       <a href="planteamiento.html">Planteamiento</a>
       <a href="esquina-noroeste.html">Noroeste</a>
       <a href="costo-minimo.html">Costo mínimo</a>
@@ -29,67 +30,74 @@
 <main>
   <section class="portada">
     <div class="envoltura">
-      <span class="etiqueta">Investigación de Operaciones</span>
+      <span class="etiqueta">GuateNet · Investigación de Operaciones</span>
       <h1>Modelos de <span class="resalte">Transporte</span></h1>
-      <p>Documentación del procedimiento para resolver el problema planteado por el catedrático.
-         Cada botón abre un ítem del trabajo: el planteamiento, los tres métodos de solución,
-         la comparación de resultados y la evidencia del procedimiento hecho a mano.</p>
+      <p>GuateNet distribuye equipo de redes y telecomunicaciones en toda Guatemala. Cada semana
+         despacha 150 cajas desde cinco centros de distribución por medio de seis empresas de
+         paquetería, y necesita repartirlas al menor costo posible.</p>
+      <p>Este sitio documenta cómo se resolvió ese problema. Cada botón abre un ítem del trabajo.</p>
+      <div id="cifras" class="cifras"></div>
     </div>
   </section>
 
   <section class="seccion" style="padding-top:8px">
     <div class="envoltura">
       <div class="rejilla-botones">
+        <a class="tarjeta-boton" href="empresa.html">
+          <div class="numero-item">1</div>
+          <h3>La empresa</h3>
+          <p>Quién es GuateNet, qué vende, desde dónde despacha y con qué empresas de paquetería trabaja.</p>
+          <div class="flecha">Abrir <span>→</span></div>
+        </a>
 
         <a class="tarjeta-boton" href="planteamiento.html">
-          <div class="numero-item">1</div>
+          <div class="numero-item">2</div>
           <h3>Planteamiento del problema</h3>
-          <p>Matriz de costos, ofertas y demandas. Verificación de que el modelo está balanceado.</p>
+          <p>Matriz de costos, ofertas y demandas. Comprobación de que el modelo está balanceado.</p>
           <div class="flecha">Abrir <span>→</span></div>
         </a>
 
         <a class="tarjeta-boton" href="esquina-noroeste.html">
-          <div class="numero-item">2</div>
+          <div class="numero-item">3</div>
           <h3>Esquina Noroeste</h3>
           <p>Primer procedimiento: solución inicial avanzando en escalera desde la celda superior izquierda.</p>
           <div class="flecha">Abrir <span>→</span></div>
         </a>
 
         <a class="tarjeta-boton" href="costo-minimo.html">
-          <div class="numero-item">3</div>
+          <div class="numero-item">4</div>
           <h3>Costo Mínimo</h3>
           <p>Segundo procedimiento, paso por paso, atendiendo siempre la celda más barata disponible.</p>
           <div class="flecha">Abrir <span>→</span></div>
         </a>
 
         <a class="tarjeta-boton" href="vogel.html">
-          <div class="numero-item">4</div>
+          <div class="numero-item">5</div>
           <h3>Método de Vogel</h3>
           <p>Tercer procedimiento: penalizaciones por fila y por columna para acercarse al óptimo.</p>
           <div class="flecha">Abrir <span>→</span></div>
         </a>
 
         <a class="tarjeta-boton" href="comparacion.html">
-          <div class="numero-item">5</div>
+          <div class="numero-item">6</div>
           <h3>Comparación de resultados</h3>
-          <p>Los tres costos totales frente a frente y cuál entrega la mejor solución inicial.</p>
+          <p>Los tres costos totales frente a frente y cuál le conviene más a GuateNet.</p>
           <div class="flecha">Abrir <span>→</span></div>
         </a>
 
         <a class="tarjeta-boton" href="calculadora.html">
-          <div class="numero-item">6</div>
+          <div class="numero-item">7</div>
           <h3>Calculadora interactiva</h3>
-          <p>Cambia costos, ofertas y demandas y el sistema vuelve a resolver con los tres métodos.</p>
+          <p>Cambia costos, capacidades y volúmenes y el sistema vuelve a resolver con los tres métodos.</p>
           <div class="flecha">Abrir <span>→</span></div>
         </a>
 
         <a class="tarjeta-boton" href="documentacion.html">
-          <div class="numero-item">7</div>
+          <div class="numero-item">8</div>
           <h3>Documentación y evidencia</h3>
-          <p>Presentación del grupo, procedimiento hecho a mano y el código que resuelve el modelo.</p>
+          <p>Procedimiento hecho a mano, integrantes y el código que resuelve el modelo.</p>
           <div class="flecha">Abrir <span>→</span></div>
         </a>
-
       </div>
     </div>
   </section>
@@ -98,23 +106,28 @@
     <div class="envoltura">
       <h2>Integrantes</h2>
       <p class="intro">Grupo de trabajo.</p>
-      <div class="integrantes">
-        <div class="integrante"><div class="avatar">AC</div><div><div class="nombre">Andy Giancarlo Choreque Gómez</div><div class="carne">0910-24-9155</div></div></div>
-        <div class="integrante"><div class="avatar">BR</div><div><div class="nombre">Bryan David Ramírez Gutiérrez</div><div class="carne">0910-24-8939</div></div></div>
-        <div class="integrante"><div class="avatar">JG</div><div><div class="nombre">Jefferson Emilio Gómez López</div><div class="carne">0910-24-6598</div></div></div>
-        <div class="integrante"><div class="avatar">KQ</div><div><div class="nombre">Kevin Daniel Quexel Sal</div><div class="carne">0910-24-8217</div></div></div>
-        <div class="integrante"><div class="avatar">MI</div><div><div class="nombre">Maycol Alfredo Inay Ovalle</div><div class="carne">0910-24-9760</div></div></div>
-      </div>
+        <div class="integrantes">
+          <div class="integrante"><div class="avatar">AC</div><div><div class="nombre">Andy Giancarlo Choreque Gómez</div><div class="carne">0910-24-9155</div></div></div>
+          <div class="integrante"><div class="avatar">BR</div><div><div class="nombre">Bryan David Ramírez Gutiérrez</div><div class="carne">0910-24-8939</div></div></div>
+          <div class="integrante"><div class="avatar">JG</div><div><div class="nombre">Jefferson Emilio Gómez López</div><div class="carne">0910-24-6598</div></div></div>
+          <div class="integrante"><div class="avatar">KQ</div><div><div class="nombre">Kevin Daniel Quexel Sal</div><div class="carne">0910-24-8217</div></div></div>
+          <div class="integrante"><div class="avatar">MI</div><div><div class="nombre">Maycol Alfredo Inay Ovalle</div><div class="carne">0910-24-9760</div></div></div>
+        </div>
     </div>
   </section>
 </main>
 
 <footer class="pie">
-  <div class="envoltura">Modelos de Transporte · Investigación de Operaciones</div>
+  <div class="envoltura">
+    <strong>GuateNet</strong> · Soluciones de Telecomunicaciones<br>
+    Proyecto de Investigación de Operaciones · <a href="index.html">Página principal</a>
+    <div class="nota-ficticia">GuateNet es una empresa ficticia creada para este ejercicio académico.</div>
+  </div>
 </footer>
 
 <script src="assets/js/config.js"></script>
 <script src="assets/js/transporte.js"></script>
 <script src="assets/js/interfaz.js"></script>
+<script src="assets/js/empresa.js"></script>
 </body>
 </html>

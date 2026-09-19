@@ -1,9 +1,23 @@
 {
-  "titulo": "Distribución de paquetería por empresa de mensajería",
-  "descripcion": "Cinco departamentos deben repartir su paquetería entre seis empresas de mensajería. Cada celda es el costo unitario en quetzales (Q) de enviar desde el departamento por medio de esa empresa.",
+  "empresa": {
+    "nombre": "GuateNet",
+    "razonSocial": "GuateNet Soluciones de Telecomunicaciones, S.A.",
+    "giro": "Distribución mayorista de equipo de redes y telecomunicaciones",
+    "fundacion": 2016,
+    "sede": "Ciudad de Guatemala, zona 12",
+    "clientes": "Proveedores de internet, instaladores de redes, municipalidades, hoteles y empresas",
+    "descripcion": "GuateNet abastece a instaladores y proveedores de internet de todo el país con equipo de red: routers, switches, access points, cable UTP, conectores RJ45, patch panels, racks y herramienta de ponchado. La mercadería sale de cinco centros de distribución y se entrega por medio de seis empresas de paquetería con las que hay capacidad contratada cada semana.",
+    "ficticia": true
+  },
+
+  "titulo": "GuateNet · Asignación semanal de envíos a las empresas de paquetería",
+  "descripcion": "Cada semana los cinco centros de distribución de GuateNet despachan 150 cajas estándar de equipo de red. Cada celda es el costo en quetzales de mover una caja desde ese centro por medio de esa empresa de paquetería.",
   "unidad": "Q",
-  "rotuloOrigenes": "Departamento",
-  "rotuloDestinos": "Paquetería",
+  "unidadEnvio": "caja estándar de 18 kg",
+  "periodo": "semana",
+  "rotuloOrigenes": "Centro de distribución",
+  "rotuloDestinos": "Empresa de paquetería",
+
   "origenes": ["Guatemala", "Chimaltenango", "Sacatepéquez", "Petén", "Jalapa"],
   "destinos": ["Forza", "Guatex", "Envía Guatemala", "Cargo Express", "Telomando", "Henma Express"],
   "costos": [
@@ -15,6 +29,58 @@
   ],
   "ofertas": [30, 40, 35, 25, 20],
   "demandas": [20, 25, 15, 30, 35, 25],
+
+  "detalleOrigenes": [
+    {
+      "sede": "Bodega central, zona 12",
+      "cobertura": "Ciudad capital y municipios del corredor central",
+      "nota": "Está a pocas cuadras del centro de acopio de Envía Guatemala, por eso esa tarifa es la más baja de toda la matriz."
+    },
+    {
+      "sede": "Centro de consolidación sobre la CA-1 Occidente",
+      "cobertura": "Occidente del país: Sololá, Quetzaltenango y Huehuetenango",
+      "nota": "Es el centro de mayor volumen porque concentra todo lo que baja hacia occidente."
+    },
+    {
+      "sede": "Bodega regional en Antigua Guatemala",
+      "cobertura": "Sacatepéquez y Escuintla",
+      "nota": "Atiende sobre todo a instaladores, hoteles y comercios de la región."
+    },
+    {
+      "sede": "Bodega regional en Santa Elena",
+      "cobertura": "Petén y la franja transversal del norte",
+      "nota": "Las tarifas son las más altas del país por la distancia y el estado de las rutas."
+    },
+    {
+      "sede": "Bodega regional en Jalapa",
+      "cobertura": "Oriente: Jalapa, Jutiapa, Chiquimula y Zacapa",
+      "nota": "Centro pequeño pero constante, abastece proyectos municipales de fibra."
+    }
+  ],
+
+  "detalleDestinos": [
+    { "cobertura": "Cobertura nacional con entrega en 24 a 48 horas", "contrato": "Capacidad contratada por semana" },
+    { "cobertura": "Red amplia en occidente y en el altiplano", "contrato": "Capacidad contratada por semana" },
+    { "cobertura": "Fuerte en el área metropolitana y central", "contrato": "Capacidad contratada por semana" },
+    { "cobertura": "Cobertura nacional, maneja bien la carga voluminosa", "contrato": "Capacidad contratada por semana" },
+    { "cobertura": "Especializada en rutas largas hacia el norte y el oriente", "contrato": "Capacidad contratada por semana" },
+    { "cobertura": "Entrega en cabeceras departamentales", "contrato": "Capacidad contratada por semana" }
+  ],
+
+  "catalogo": [
+    { "codigo": "GN-RT-1200",  "producto": "Router empresarial dual band",          "categoria": "Conectividad", "precio": 1250.00, "porCaja": 6 },
+    { "codigo": "GN-SW-2400",  "producto": "Switch administrable 24 puertos Gigabit","categoria": "Conmutación",  "precio": 3400.00, "porCaja": 2 },
+    { "codigo": "GN-SW-0800",  "producto": "Switch no administrable 8 puertos",      "categoria": "Conmutación",  "precio": 640.00,  "porCaja": 10 },
+    { "codigo": "GN-AP-WF6",   "producto": "Access point Wi-Fi 6 para techo",        "categoria": "Conectividad", "precio": 1150.00, "porCaja": 8 },
+    { "codigo": "GN-ONT-GPON", "producto": "ONT GPON para fibra óptica",             "categoria": "Fibra óptica", "precio": 620.00,  "porCaja": 12 },
+    { "codigo": "GN-UTP-C6",   "producto": "Cable UTP Cat6, caja de 305 m",          "categoria": "Cableado",     "precio": 950.00,  "porCaja": 1 },
+    { "codigo": "GN-RJ45-100", "producto": "Conectores RJ45 Cat6, bolsa de 100",     "categoria": "Cableado",     "precio": 180.00,  "porCaja": 40 },
+    { "codigo": "GN-PP-24",    "producto": "Patch panel 24 puertos Cat6",            "categoria": "Cableado",     "precio": 480.00,  "porCaja": 6 },
+    { "codigo": "GN-RK-9U",    "producto": "Rack de pared 9U",                       "categoria": "Infraestructura", "precio": 1380.00, "porCaja": 2 },
+    { "codigo": "GN-UPS-1000", "producto": "UPS 1000 VA / 600 W",                    "categoria": "Energía",      "precio": 890.00,  "porCaja": 4 },
+    { "codigo": "GN-HR-PT",    "producto": "Kit ponchadora con tester de red",        "categoria": "Herramienta",  "precio": 320.00,  "porCaja": 15 }
+  ],
+
   "resultadosEsperados": {
     "Esquina Noroeste": 9982.70,
     "Costo Mínimo": 8450.35,

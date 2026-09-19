@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>La empresa · GuateNet</title>
+<meta name="description" content="Perfil de GuateNet: catálogo de equipo de redes, centros de distribución y empresas de paquetería.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='9' fill='%232f5bea'/%3E%3Cpath d='M16 10.5v5M16 15.5l-5 5.5M16 15.5l5 5.5' stroke='white' stroke-width='1.7' stroke-linecap='round' fill='none'/%3E%3Ccircle cx='16' cy='9' r='2.5' fill='white'/%3E%3Ccircle cx='10.5' cy='22.5' r='2.5' fill='white'/%3E%3Ccircle cx='21.5' cy='22.5' r='2.5' fill='white'/%3E%3C/svg%3E">
+<link rel="stylesheet" href="assets/css/estilos.css">
+</head>
+<body data-base="">
+
+<header class="barra">
+  <div class="envoltura">
+    <a class="marca" href="index.html"><svg class="logo" viewBox="0 0 32 32" aria-hidden="true"><defs><linearGradient id="lg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#2f5bea"/><stop offset="1" stop-color="#0ea47a"/></linearGradient></defs><rect width="32" height="32" rx="9" fill="url(#lg)"/><path d="M16 10.5v5M16 15.5l-5 5.5M16 15.5l5 5.5" stroke="#fff" stroke-width="1.7" stroke-linecap="round" fill="none"/><circle cx="16" cy="9" r="2.5" fill="#fff"/><circle cx="10.5" cy="22.5" r="2.5" fill="#fff"/><circle cx="21.5" cy="22.5" r="2.5" fill="#fff"/></svg><span>GuateNet</span></a>
+    <nav>
+      <a href="empresa.html" aria-current="page">Empresa</a>
+      <a href="planteamiento.html">Planteamiento</a>
+      <a href="esquina-noroeste.html">Noroeste</a>
+      <a href="costo-minimo.html">Costo mínimo</a>
+      <a href="vogel.html">Vogel</a>
+      <a href="comparacion.html">Comparación</a>
+      <a href="calculadora.html">Calculadora</a>
+      <a href="documentacion.html">Documentación</a>
+      <button class="boton-tema" type="button" aria-label="Cambiar tema">☾</button>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <section class="encabezado-item">
+    <div class="envoltura">
+      <a class="volver" href="index.html">← Volver a la página principal</a>
+      <h1>La empresa</h1>
+      <p class="resumen">GuateNet distribuye equipo de redes y telecomunicaciones en toda Guatemala. Esta es su operación y de dónde sale el problema de transporte.</p>
+    </div>
+  </section>
+
+  <section class="seccion">
+    <div class="envoltura">
+      <div class="panel">
+        <h3>Quiénes somos</h3>
+        <p id="descripcion-empresa" class="cargando">Cargando…</p>
+        <div id="ficha" style="margin-top:16px"></div>
+      </div>
+
+      <div class="panel">
+        <h3>Catálogo</h3>
+        <p class="intro">Lo que GuateNet distribuye a instaladores y proveedores de internet.
+           La columna final indica cuántas unidades caben en una caja estándar de envío.</p>
+        <div id="catalogo"><p class="cargando">Cargando…</p></div>
+      </div>
+
+      <div class="panel">
+        <h3>Centros de distribución</h3>
+        <p class="intro">Desde aquí sale la mercadería. La última columna es el volumen que cada
+           centro despacha por semana, es decir la <strong>oferta</strong> del modelo.</p>
+        <div id="centros"><p class="cargando">Cargando…</p></div>
+      </div>
+
+      <div class="panel">
+        <h3>Empresas de paquetería</h3>
+        <p class="intro">GuateNet no tiene flota propia: contrata capacidad semanal con seis
+           empresas. Esa capacidad contratada es la <strong>demanda</strong> del modelo, y hay que
+           llenarla completa porque ya está pagada.</p>
+        <div id="paqueterias"><p class="cargando">Cargando…</p></div>
+      </div>
+
+      <div class="panel">
+        <h3>Por qué las tarifas cambian tanto</h3>
+        <p>El costo por caja depende de qué tan lejos está el centro de distribución del punto de
+           acopio de cada empresa de paquetería, del estado de las rutas y del volumen que se mueve
+           por ese tramo.</p>
+        <div id="notas-costos"></div>
+      </div>
+
+      <div class="panel">
+        <h3>El problema a resolver</h3>
+        <p>Cada semana hay que decidir <strong>cuántas cajas manda cada centro por cada empresa de
+           paquetería</strong>. Las condiciones son dos:</p>
+        <ul>
+          <li>Cada centro debe despachar exactamente todo su volumen.</li>
+          <li>Cada empresa debe recibir exactamente la capacidad que se le contrató.</li>
+        </ul>
+        <p>Como la oferta total y la demanda total suman lo mismo, se trata de un
+           <strong>modelo de transporte balanceado</strong>. La respuesta es la combinación que
+           cumpla ambas condiciones al menor costo.</p>
+        <p><a href="planteamiento.html">Ver el planteamiento formal →</a></p>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="pie">
+  <div class="envoltura">
+    <strong>GuateNet</strong> · Soluciones de Telecomunicaciones<br>
+    Proyecto de Investigación de Operaciones · <a href="index.html">Página principal</a>
+    <div class="nota-ficticia">GuateNet es una empresa ficticia creada para este ejercicio académico.</div>
+  </div>
+</footer>
+
+<script src="assets/js/config.js"></script>
+<script src="assets/js/transporte.js"></script>
+<script src="assets/js/interfaz.js"></script>
+<script src="assets/js/empresa.js"></script>
+</body>
+</html>

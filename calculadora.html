@@ -3,17 +3,18 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Calculadora · Modelos de Transporte</title>
-<meta name="description" content="Calculadora del modelo de transporte: Esquina Noroeste, Costo Mínimo y Vogel.">
-<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🚚</text></svg>">
+<title>Calculadora · GuateNet</title>
+<meta name="description" content="Calculadora del modelo de transporte de GuateNet: Esquina Noroeste, Costo Mínimo y Vogel.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='9' fill='%232f5bea'/%3E%3Cpath d='M16 10.5v5M16 15.5l-5 5.5M16 15.5l5 5.5' stroke='white' stroke-width='1.7' stroke-linecap='round' fill='none'/%3E%3Ccircle cx='16' cy='9' r='2.5' fill='white'/%3E%3Ccircle cx='10.5' cy='22.5' r='2.5' fill='white'/%3E%3Ccircle cx='21.5' cy='22.5' r='2.5' fill='white'/%3E%3C/svg%3E">
 <link rel="stylesheet" href="assets/css/estilos.css">
 </head>
 <body data-base="">
 
 <header class="barra">
   <div class="envoltura">
-    <a class="marca" href="index.html"><span class="punto"></span>Modelos de Transporte</a>
+    <a class="marca" href="index.html"><svg class="logo" viewBox="0 0 32 32" aria-hidden="true"><defs><linearGradient id="lg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#2f5bea"/><stop offset="1" stop-color="#0ea47a"/></linearGradient></defs><rect width="32" height="32" rx="9" fill="url(#lg)"/><path d="M16 10.5v5M16 15.5l-5 5.5M16 15.5l5 5.5" stroke="#fff" stroke-width="1.7" stroke-linecap="round" fill="none"/><circle cx="16" cy="9" r="2.5" fill="#fff"/><circle cx="10.5" cy="22.5" r="2.5" fill="#fff"/><circle cx="21.5" cy="22.5" r="2.5" fill="#fff"/></svg><span>GuateNet</span></a>
     <nav>
+      <a href="empresa.html">Empresa</a>
       <a href="planteamiento.html">Planteamiento</a>
       <a href="esquina-noroeste.html">Noroeste</a>
       <a href="costo-minimo.html">Costo mínimo</a>
@@ -31,7 +32,7 @@
     <div class="envoltura">
       <a class="volver" href="index.html">← Volver a la página principal</a>
       <h1>Calculadora interactiva</h1>
-      <p class="resumen">Cambia los costos, las ofertas o las demandas y el sistema vuelve a resolver el modelo con los tres métodos.</p>
+      <p class="resumen">Cambia las tarifas, los volúmenes o las capacidades y el sistema vuelve a resolver el modelo con los tres métodos.</p>
     </div>
   </section>
 
@@ -39,14 +40,14 @@
     <div class="envoltura">
       <div class="panel">
         <h3>Datos del modelo</h3>
-        <p class="intro">Puedes editar cualquier casilla: nombres, costos, ofertas y demandas.
-           También puedes agregar o quitar filas y columnas.</p>
+        <p class="intro">Puedes editar cualquier casilla: nombres, tarifas, volúmenes y capacidades.
+           También puedes agregar o quitar centros de distribución y empresas de paquetería.</p>
 
         <div class="controles">
-          <button class="boton" type="button" id="btn-mas-fila">+ Origen</button>
-          <button class="boton" type="button" id="btn-menos-fila">− Origen</button>
-          <button class="boton" type="button" id="btn-mas-columna">+ Destino</button>
-          <button class="boton" type="button" id="btn-menos-columna">− Destino</button>
+          <button class="boton" type="button" id="btn-mas-fila">+ Centro</button>
+          <button class="boton" type="button" id="btn-menos-fila">− Centro</button>
+          <button class="boton" type="button" id="btn-mas-columna">+ Paquetería</button>
+          <button class="boton" type="button" id="btn-menos-columna">− Paquetería</button>
         </div>
 
         <div id="editor"><p class="cargando">Cargando…</p></div>
@@ -58,8 +59,8 @@
           <button class="boton" type="button" id="btn-descargar">Descargar datos.json</button>
         </div>
         <p style="font-size:.85rem;color:var(--texto-suave);margin-top:10px">
-           Si el problema no queda balanceado, el sistema agrega automáticamente un origen o un
-           destino ficticio con costo 0 antes de resolver.</p>
+           Si el problema no queda balanceado, el sistema agrega automáticamente un centro o una
+           empresa ficticia con costo 0 antes de resolver.</p>
       </div>
 
       <div id="resultados"></div>
@@ -68,7 +69,11 @@
 </main>
 
 <footer class="pie">
-  <div class="envoltura">Modelos de Transporte · Investigación de Operaciones · <a href="index.html">Página principal</a></div>
+  <div class="envoltura">
+    <strong>GuateNet</strong> · Soluciones de Telecomunicaciones<br>
+    Proyecto de Investigación de Operaciones · <a href="index.html">Página principal</a>
+    <div class="nota-ficticia">GuateNet es una empresa ficticia creada para este ejercicio académico.</div>
+  </div>
 </footer>
 
 <script src="assets/js/config.js"></script>

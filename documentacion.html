@@ -3,17 +3,18 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Documentación · Modelos de Transporte</title>
-<meta name="description" content="Documentación del proyecto de modelos de transporte.">
-<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🚚</text></svg>">
+<title>Documentación · GuateNet</title>
+<meta name="description" content="Documentación del proyecto de modelos de transporte de GuateNet.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='9' fill='%232f5bea'/%3E%3Cpath d='M16 10.5v5M16 15.5l-5 5.5M16 15.5l5 5.5' stroke='white' stroke-width='1.7' stroke-linecap='round' fill='none'/%3E%3Ccircle cx='16' cy='9' r='2.5' fill='white'/%3E%3Ccircle cx='10.5' cy='22.5' r='2.5' fill='white'/%3E%3Ccircle cx='21.5' cy='22.5' r='2.5' fill='white'/%3E%3C/svg%3E">
 <link rel="stylesheet" href="assets/css/estilos.css">
 </head>
 <body data-base="">
 
 <header class="barra">
   <div class="envoltura">
-    <a class="marca" href="index.html"><span class="punto"></span>Modelos de Transporte</a>
+    <a class="marca" href="index.html"><svg class="logo" viewBox="0 0 32 32" aria-hidden="true"><defs><linearGradient id="lg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#2f5bea"/><stop offset="1" stop-color="#0ea47a"/></linearGradient></defs><rect width="32" height="32" rx="9" fill="url(#lg)"/><path d="M16 10.5v5M16 15.5l-5 5.5M16 15.5l5 5.5" stroke="#fff" stroke-width="1.7" stroke-linecap="round" fill="none"/><circle cx="16" cy="9" r="2.5" fill="#fff"/><circle cx="10.5" cy="22.5" r="2.5" fill="#fff"/><circle cx="21.5" cy="22.5" r="2.5" fill="#fff"/></svg><span>GuateNet</span></a>
     <nav>
+      <a href="empresa.html">Empresa</a>
       <a href="planteamiento.html">Planteamiento</a>
       <a href="esquina-noroeste.html">Noroeste</a>
       <a href="costo-minimo.html">Costo mínimo</a>
@@ -31,7 +32,7 @@
     <div class="envoltura">
       <a class="volver" href="index.html">← Volver a la página principal</a>
       <h1>Documentación y evidencia</h1>
-      <p class="resumen">Presentación del grupo, el procedimiento hecho a mano y el código que resuelve el modelo.</p>
+      <p class="resumen">Procedimiento hecho a mano, integrantes y el código que resuelve el modelo.</p>
     </div>
   </section>
 
@@ -40,12 +41,13 @@
       <div class="panel">
         <h3>Sobre el proyecto</h3>
         <p>Este sitio documenta el procedimiento para resolver el problema de transporte planteado
-           por el catedrático. El modelo se resolvió a mano con tres métodos de solución inicial
-           y después se programó para comprobar los resultados.</p>
+           por el catedrático, aplicado al caso de <strong>GuateNet</strong>, una distribuidora de
+           equipo de redes y telecomunicaciones. El modelo se resolvió a mano con tres métodos de
+           solución inicial y después se programó para comprobar los resultados.</p>
         <p>Los valores que aparecen en todas las páginas <strong>no están escritos a mano en el
-           sitio</strong>: se calculan en el momento a partir del archivo
-           <code>datos.json</code>, con el mismo algoritmo en JavaScript y en Python. Los tres
-           métodos reproducen exactamente los totales obtenidos en las hojas de trabajo.</p>
+           sitio</strong>: se calculan en el momento a partir del archivo <code>datos.json</code>,
+           con el mismo algoritmo implementado en JavaScript y en Python. Los tres métodos
+           reproducen exactamente los totales obtenidos en las hojas de trabajo.</p>
         <div class="tabla-scroll">
           <table class="matriz">
             <thead><tr><th>Método</th><th>Resultado a mano</th><th>Resultado del programa</th></tr></thead>
@@ -78,6 +80,14 @@ python3 python/transporte.py --metodo vogel
 python3 python/transporte.py --json     # salida en JSON
 python3 python/pruebas.py               # comprueba contra las hojas</code></pre>
       </div>
+
+      <div class="panel">
+        <h3>Nota sobre la empresa</h3>
+        <p>GuateNet es una <strong>empresa ficticia</strong> creada para este ejercicio académico.
+           El catálogo, los centros de distribución y las tarifas se construyeron para dar contexto
+           realista al modelo. Los nombres de las empresas de paquetería corresponden a los que se
+           usaron en el planteamiento original de clase.</p>
+      </div>
     </div>
   </section>
 
@@ -91,7 +101,11 @@ python3 python/pruebas.py               # comprueba contra las hojas</code></pre
 </main>
 
 <footer class="pie">
-  <div class="envoltura">Modelos de Transporte · Investigación de Operaciones · <a href="index.html">Página principal</a></div>
+  <div class="envoltura">
+    <strong>GuateNet</strong> · Soluciones de Telecomunicaciones<br>
+    Proyecto de Investigación de Operaciones · <a href="index.html">Página principal</a>
+    <div class="nota-ficticia">GuateNet es una empresa ficticia creada para este ejercicio académico.</div>
+  </div>
 </footer>
 
 <script src="assets/js/config.js"></script>

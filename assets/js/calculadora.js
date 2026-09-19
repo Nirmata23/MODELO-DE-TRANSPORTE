@@ -103,12 +103,15 @@
 
   function descargar() {
     leerEditor();
-    var copia = {
-      titulo: datos.titulo, descripcion: datos.descripcion, unidad: datos.unidad,
-      rotuloOrigenes: datos.rotuloOrigenes, rotuloDestinos: datos.rotuloDestinos,
-      origenes: datos.origenes, destinos: datos.destinos,
-      costos: datos.costos, ofertas: datos.ofertas, demandas: datos.demandas
-    };
+    // Se conserva todo lo demás del archivo (empresa, catálogo, detalles)
+    // y sólo se reemplaza lo que se editó en la tabla.
+    var copia = JSON.parse(JSON.stringify(datos));
+    copia.origenes = datos.origenes;
+    copia.destinos = datos.destinos;
+    copia.costos = datos.costos;
+    copia.ofertas = datos.ofertas;
+    copia.demandas = datos.demandas;
+    delete copia.resultadosEsperados;
     var blob = new Blob([JSON.stringify(copia, null, 2)], { type: "application/json" });
     var a = document.createElement("a");
     a.href = URL.createObjectURL(blob);

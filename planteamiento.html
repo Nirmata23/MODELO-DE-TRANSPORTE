@@ -3,17 +3,18 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Planteamiento · Modelos de Transporte</title>
-<meta name="description" content="Matriz de costos, ofertas y demandas del modelo de transporte.">
-<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🚚</text></svg>">
+<title>Planteamiento · GuateNet</title>
+<meta name="description" content="Matriz de costos, ofertas y demandas del modelo de transporte de GuateNet.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='9' fill='%232f5bea'/%3E%3Cpath d='M16 10.5v5M16 15.5l-5 5.5M16 15.5l5 5.5' stroke='white' stroke-width='1.7' stroke-linecap='round' fill='none'/%3E%3Ccircle cx='16' cy='9' r='2.5' fill='white'/%3E%3Ccircle cx='10.5' cy='22.5' r='2.5' fill='white'/%3E%3Ccircle cx='21.5' cy='22.5' r='2.5' fill='white'/%3E%3C/svg%3E">
 <link rel="stylesheet" href="assets/css/estilos.css">
 </head>
 <body data-base="" data-metodo="esquinaNoroeste">
 
 <header class="barra">
   <div class="envoltura">
-    <a class="marca" href="index.html"><span class="punto"></span>Modelos de Transporte</a>
+    <a class="marca" href="index.html"><svg class="logo" viewBox="0 0 32 32" aria-hidden="true"><defs><linearGradient id="lg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#2f5bea"/><stop offset="1" stop-color="#0ea47a"/></linearGradient></defs><rect width="32" height="32" rx="9" fill="url(#lg)"/><path d="M16 10.5v5M16 15.5l-5 5.5M16 15.5l5 5.5" stroke="#fff" stroke-width="1.7" stroke-linecap="round" fill="none"/><circle cx="16" cy="9" r="2.5" fill="#fff"/><circle cx="10.5" cy="22.5" r="2.5" fill="#fff"/><circle cx="21.5" cy="22.5" r="2.5" fill="#fff"/></svg><span>GuateNet</span></a>
     <nav>
+      <a href="empresa.html">Empresa</a>
       <a href="planteamiento.html" aria-current="page">Planteamiento</a>
       <a href="esquina-noroeste.html">Noroeste</a>
       <a href="costo-minimo.html">Costo mínimo</a>
@@ -39,26 +40,40 @@
     <div class="envoltura">
       <div class="panel">
         <h3>El problema</h3>
-        <p>Cinco departamentos deben repartir su paquetería entre seis empresas de mensajería.
-           Cada celda de la tabla es el costo unitario, en quetzales, de enviar desde ese
-           departamento por medio de esa empresa. La columna <em>Oferta</em> indica cuántos envíos
-           tiene disponibles cada departamento y la fila <em>Demanda</em> cuántos envíos puede
-           recibir cada empresa.</p>
-        <p>El objetivo es decidir cuántos envíos manda cada departamento por cada empresa
-           de modo que se cubra toda la demanda al <strong>menor costo total posible</strong>.</p>
+        <p>Los cinco centros de distribución de GuateNet despachan cada semana un total de
+           <strong>150 cajas</strong> de equipo de red. La empresa no tiene flota propia: contrató
+           capacidad semanal con seis empresas de paquetería y debe llenarla completa.</p>
+        <p>Cada celda de la tabla es el <strong>costo en quetzales de mover una caja</strong> desde
+           ese centro por medio de esa empresa. La columna <em>Oferta</em> es lo que despacha cada
+           centro y la fila <em>Demanda</em> es la capacidad contratada con cada empresa.</p>
         <div id="tabla-planteamiento"><p class="cargando">Cargando…</p></div>
       </div>
 
       <div class="panel">
-        <h3>Comprobación del balance</h3>
-        <p>Un modelo de transporte se puede resolver directamente cuando la oferta total es igual
-           a la demanda total.</p>
+        <h3>Variables de decisión</h3>
+        <p>Sea <strong>x<sub>ij</sub></strong> el número de cajas que el centro <em>i</em> envía
+           por medio de la empresa de paquetería <em>j</em>. Con 5 centros y 6 empresas hay 30
+           variables.</p>
+        <p><strong>Función objetivo:</strong> minimizar el costo total, es decir la suma de cada
+           x<sub>ij</sub> multiplicada por su costo c<sub>ij</sub>.</p>
+        <p><strong>Restricciones:</strong></p>
         <ul>
-          <li>Oferta total: 30 + 40 + 35 + 25 + 20 = <strong>150</strong></li>
-          <li>Demanda total: 20 + 25 + 15 + 30 + 35 + 25 = <strong>150</strong></li>
+          <li>Lo que sale de cada centro debe ser igual a su oferta.</li>
+          <li>Lo que recibe cada empresa debe ser igual a su capacidad contratada.</li>
+          <li>Ninguna x<sub>ij</sub> puede ser negativa.</li>
         </ul>
-        <p>Ambas suman 150, por lo tanto el problema está <strong>balanceado</strong> y no hace
-           falta agregar un origen ni un destino ficticio.</p>
+      </div>
+
+      <div class="panel">
+        <h3>Comprobación del balance</h3>
+        <p>Un modelo de transporte se resuelve directamente cuando la oferta total es igual a la
+           demanda total.</p>
+        <ul>
+          <li>Oferta total: 30 + 40 + 35 + 25 + 20 = <strong>150 cajas</strong></li>
+          <li>Demanda total: 20 + 25 + 15 + 30 + 35 + 25 = <strong>150 cajas</strong></li>
+        </ul>
+        <p>Ambas suman 150, así que el problema está <strong>balanceado</strong> y no hace falta
+           agregar un centro ni una empresa ficticia.</p>
         <p style="font-size:.9rem;color:var(--texto-suave)">
            Con 5 orígenes y 6 destinos, una solución básica no degenerada debe ocupar
            5 + 6 − 1 = 10 celdas.</p>
@@ -68,7 +83,11 @@
 </main>
 
 <footer class="pie">
-  <div class="envoltura">Modelos de Transporte · Investigación de Operaciones · <a href="index.html">Página principal</a></div>
+  <div class="envoltura">
+    <strong>GuateNet</strong> · Soluciones de Telecomunicaciones<br>
+    Proyecto de Investigación de Operaciones · <a href="index.html">Página principal</a>
+    <div class="nota-ficticia">GuateNet es una empresa ficticia creada para este ejercicio académico.</div>
+  </div>
 </footer>
 
 <script src="assets/js/config.js"></script>

@@ -1,9 +1,17 @@
-# Modelos de Transporte
+# GuateNet · Modelos de Transporte
 
-Sitio del proyecto de Investigación de Operaciones. Una sola dirección abre la
-**página principal**, y desde ahí los botones llevan a cada ítem solicitado:
-planteamiento, los tres métodos de solución, la comparación de resultados, una
-calculadora interactiva y la documentación con la evidencia del procedimiento.
+Proyecto de Investigación de Operaciones. **GuateNet** es una distribuidora
+mayorista de equipo de redes y telecomunicaciones —routers, switches, access
+points, cable UTP, conectores RJ45, patch panels, racks y herramienta— que cada
+semana despacha 150 cajas desde cinco centros de distribución por medio de seis
+empresas de paquetería, y necesita repartirlas al menor costo posible.
+
+Una sola dirección abre la **página principal**, y desde ahí los botones llevan
+a cada ítem: la empresa, el planteamiento, los tres métodos de solución, la
+comparación de resultados, una calculadora interactiva y la documentación con la
+evidencia del procedimiento.
+
+> GuateNet es una empresa ficticia creada para este ejercicio académico.
 
 **Enlace del proyecto:** https://nirmata23.github.io/modelo-de-transporte/
 
@@ -13,18 +21,19 @@ calculadora interactiva y la documentación con la evidencia del procedimiento.
 
 | # | Ítem | Página |
 |---|------|--------|
-| 1 | Planteamiento del problema | `planteamiento.html` |
-| 2 | Esquina Noroeste | `esquina-noroeste.html` |
-| 3 | Costo Mínimo | `costo-minimo.html` |
-| 4 | Método de Vogel | `vogel.html` |
-| 5 | Comparación de los tres métodos | `comparacion.html` |
-| 6 | Calculadora interactiva | `calculadora.html` |
-| 7 | Documentación y evidencia | `documentacion.html` |
+| 1 | La empresa | `empresa.html` |
+| 2 | Planteamiento del problema | `planteamiento.html` |
+| 3 | Esquina Noroeste | `esquina-noroeste.html` |
+| 4 | Costo Mínimo | `costo-minimo.html` |
+| 5 | Método de Vogel | `vogel.html` |
+| 6 | Comparación de los tres métodos | `comparacion.html` |
+| 7 | Calculadora interactiva | `calculadora.html` |
+| 8 | Documentación y evidencia | `documentacion.html` |
 
 ## Resultados
 
-El problema tiene 5 orígenes y 6 destinos, con oferta y demanda de 150 unidades
-cada una, por lo que está balanceado. Los tres métodos programados reproducen
+El modelo tiene 5 centros de distribución y 6 empresas de paquetería, con oferta
+y demanda de 150 cajas semanales cada una, por lo que está balanceado. Los tres métodos programados reproducen
 exactamente los totales calculados a mano por el grupo:
 
 | Método | A mano | Programa |
@@ -37,21 +46,22 @@ exactamente los totales calculados a mano por el grupo:
 
 ```
 index.html              página principal con los botones
-planteamiento.html      …y una página por cada ítem
-datos.json              el planteamiento: costos, ofertas y demandas
+empresa.html            …y una página por cada ítem
+datos.json              la empresa, el catálogo, los centros y la matriz de costos
 assets/css/estilos.css  estilos del sitio
 assets/js/transporte.js los tres métodos en JavaScript
 assets/js/galeria.js    galería que se llena sola desde GitHub
+assets/js/empresa.js    ficha, catálogo y cifras de la empresa
 assets/js/…             interfaz, calculadora y comparación
 python/transporte.py    los tres métodos en Python
 python/pruebas.py       comprobaciones contra las hojas de trabajo
 imagenes/               las fotos del procedimiento, por sección
 ```
 
-Los números que se ven en el sitio no están escritos a mano en el HTML: se
-calculan en el momento a partir de `datos.json`. Para cambiar el problema basta
-con editar ese archivo —o usar la calculadora y pulsar **Descargar datos.json**—
-y todas las páginas se actualizan solas.
+Nada está escrito a mano en el HTML: el catálogo, los centros de distribución,
+las tarifas y los resultados salen todos de `datos.json` y se arman al cargar la
+página. Para cambiar el problema —o la empresa entera— basta con editar ese
+archivo, o usar la calculadora y pulsar **Descargar datos.json**.
 
 ## Agregar fotos
 
