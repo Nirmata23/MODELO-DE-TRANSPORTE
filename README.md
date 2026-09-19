@@ -27,8 +27,9 @@ evidencia del procedimiento.
 | 4 | Costo Mínimo | `costo-minimo.html` |
 | 5 | Método de Vogel | `vogel.html` |
 | 6 | Comparación de los tres métodos | `comparacion.html` |
-| 7 | Calculadora interactiva | `calculadora.html` |
-| 8 | Documentación y evidencia | `documentacion.html` |
+| 7 | Cotizaciones y modalidades | `cotizaciones.html` |
+| 8 | Calculadora interactiva | `calculadora.html` |
+| 9 | Documentación y evidencia | `documentacion.html` |
 
 ## Resultados
 
@@ -52,6 +53,7 @@ assets/css/estilos.css  estilos del sitio
 assets/js/transporte.js los tres métodos en JavaScript
 assets/js/galeria.js    galería que se llena sola desde GitHub
 assets/js/empresa.js    ficha, catálogo y cifras de la empresa
+assets/js/cotizaciones.js  modalidades de envío y recálculo del modelo
 assets/js/…             interfaz, calculadora y comparación
 python/transporte.py    los tres métodos en Python
 python/pruebas.py       comprobaciones contra las hojas de trabajo
@@ -62,6 +64,21 @@ Nada está escrito a mano en el HTML: el catálogo, los centros de distribución
 las tarifas y los resultados salen todos de `datos.json` y se arman al cargar la
 página. Para cambiar el problema —o la empresa entera— basta con editar ese
 archivo, o usar la calculadora y pulsar **Descargar datos.json**.
+
+## Cotizaciones
+
+Cada empresa de paquetería tiene tres modalidades de envío en `datos.json`: la
+**estándar**, que es la tarifa base, y otras dos que suben o bajan esa tarifa
+según el tiempo de entrega y las condiciones.
+
+Con todas las empresas en modalidad estándar la matriz es **idéntica a la del
+planteamiento original**, la que se trabajó a mano. Al cambiar cualquier
+modalidad, el sitio arma la nueva matriz, marca las celdas que cambiaron y
+vuelve a resolver el modelo con los tres métodos, indicando cuánto sube o baja
+el costo por semana y por año.
+
+Para agregar una modalidad o cambiar un porcentaje, se edita el bloque
+`cotizaciones` de `datos.json`.
 
 ## Agregar fotos
 

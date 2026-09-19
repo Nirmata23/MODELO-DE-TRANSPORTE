@@ -1,23 +1,12 @@
-/* ===========================================================
-   transporte.js — métodos de solución inicial del modelo
-   de transporte: Esquina Noroeste, Costo Mínimo y Vogel.
-
-   Todo es puro: recibe datos, devuelve resultado. Sin DOM.
-   =========================================================== */
 (function (global) {
   "use strict";
 
   var EPS = 1e-9;
 
-  /** Copia profunda de una matriz numérica. */
   function copiarMatriz(m) {
     return m.map(function (fila) { return fila.slice(); });
   }
 
-  /**
-   * Equilibra el problema: si la oferta total y la demanda total no
-   * coinciden, agrega un origen o un destino ficticio con costo 0.
-   */
   function balancear(datos) {
     var costos = copiarMatriz(datos.costos);
     var origenes = datos.origenes.slice();
@@ -30,14 +19,14 @@
     var ajuste = null;
 
     if (totalOferta > totalDemanda + EPS) {
-      // Sobra producto: destino ficticio que absorbe el excedente.
+
       var sobra = totalOferta - totalDemanda;
       destinos.push("Ficticio");
       demandas.push(sobra);
       costos.forEach(function (fila) { fila.push(0); });
       ajuste = { tipo: "destino", cantidad: sobra };
     } else if (totalDemanda > totalOferta + EPS) {
-      // Falta producto: origen ficticio que cubre el faltante.
+
       var falta = totalDemanda - totalOferta;
       origenes.push("Ficticio");
       ofertas.push(falta);
@@ -53,14 +42,10 @@
     };
   }
 
-  /**
-   * Asigna la cantidad posible a la celda (i, j) y actualiza los
-   * saldos. Devuelve el registro del paso o null si ya no aplica.
-   */
   function asignar(estado, i, j, nota) {
     var cantidad = Math.min(estado.ofertaRestante[i], estado.demandaRestante[j]);
     if (cantidad <= EPS && estado.pasos.length > 0) {
-      // Asignación degenerada: se registra en cero para conservar la base.
+
       cantidad = 0;
     }
 
@@ -72,8 +57,6 @@
     var subtotal = cantidad * costoUnitario;
     estado.costoTotal += subtotal;
 
-    // Se tacha fila o columna. Si ambas llegan a cero a la vez sólo se
-    // tacha una (regla para no perder celdas básicas).
     var filaAgotada = estado.ofertaRestante[i] <= EPS;
     var columnaAgotada = estado.demandaRestante[j] <= EPS;
     if (filaAgotada && columnaAgotada) {
@@ -105,7 +88,6 @@
     return paso;
   }
 
-  /** Estado inicial compartido por los tres métodos. */
   function crearEstado(datos) {
     var b = balancear(datos);
     var filas = b.costos.length;
@@ -144,10 +126,6 @@
     };
   }
 
-  /* ---------------------------------------------------------
-     1. Esquina Noroeste
-     Se empieza arriba a la izquierda y se avanza en escalera.
-     --------------------------------------------------------- */
   function esquinaNoroeste(datos) {
     var e = crearEstado(datos);
     var guarda = 0;
@@ -159,10 +137,6 @@
     return empaquetar(e, "Esquina Noroeste");
   }
 
-  /* ---------------------------------------------------------
-     2. Costo Mínimo
-     En cada vuelta se toma la celda viva más barata.
-     --------------------------------------------------------- */
   function costoMinimo(datos) {
     var e = crearEstado(datos);
     var guarda = 0;
@@ -182,12 +156,6 @@
     return empaquetar(e, "Costo Mínimo");
   }
 
-  /* ---------------------------------------------------------
-     3. Aproximación de Vogel
-     Penalización = diferencia entre los dos costos más bajos
-     de cada fila y de cada columna. Se atiende la penalización
-     mayor y dentro de ella la celda más barata.
-     --------------------------------------------------------- */
   function dosMenores(valores) {
     var ordenados = valores.slice().sort(function (a, b) { return a - b; });
     if (ordenados.length === 0) { return null; }
@@ -201,7 +169,7 @@
 
     while (e.filasVivas.length > 0 && e.columnasVivas.length > 0 && guarda++ < 10000) {
       if (e.filasVivas.length === 1 || e.columnasVivas.length === 1) {
-        // Queda una sola línea: se llena con costo mínimo, sin penalizaciones.
+
         var iU = e.filasVivas[0], jU = e.columnasVivas[0];
         if (e.filasVivas.length === 1) {
           jU = e.columnasVivas.reduce(function (mejor, j) {
@@ -261,7 +229,6 @@
     return n.toFixed(2);
   }
 
-  /** Ejecuta los tres métodos y marca cuál dio el menor costo. */
   function resolverTodos(datos) {
     var resultados = [esquinaNoroeste(datos), costoMinimo(datos), vogel(datos)];
     var minimo = Math.min.apply(null, resultados.map(function (r) { return r.costoTotal; }));

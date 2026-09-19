@@ -1,7 +1,3 @@
-/* ===========================================================
-   comparacion.js — resuelve el problema con los tres métodos
-   y los muestra uno al lado del otro.
-   =========================================================== */
 (function () {
   "use strict";
 
@@ -28,7 +24,6 @@
       });
       h += "</div>";
 
-      // Tabla resumen
       h += '<div class="panel" style="margin-top:20px"><h3>Cuadro comparativo</h3>' +
         '<div class="tabla-scroll"><table class="matriz"><thead><tr>' +
         "<th>Método</th><th>Costo total</th><th>Diferencia con el mejor</th><th>Celdas básicas</th>" +
@@ -43,7 +38,6 @@
       });
       h += "</tbody></table></div></div>";
 
-      // Detalle de cada método
       resultados.forEach(function (r) {
         h += '<div class="panel"><h3>' + r.metodo + "</h3>" +
           window.Interfaz.tablaSolucion(r, u) +

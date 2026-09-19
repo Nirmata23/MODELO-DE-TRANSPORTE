@@ -1,7 +1,3 @@
-/* ===========================================================
-   calculadora.js — permite cambiar la matriz y volver a
-   resolver el problema con los tres métodos.
-   =========================================================== */
 (function () {
   "use strict";
 
@@ -103,8 +99,7 @@
 
   function descargar() {
     leerEditor();
-    // Se conserva todo lo demás del archivo (empresa, catálogo, detalles)
-    // y sólo se reemplaza lo que se editó en la tabla.
+
     var copia = JSON.parse(JSON.stringify(datos));
     copia.origenes = datos.origenes;
     copia.destinos = datos.destinos;

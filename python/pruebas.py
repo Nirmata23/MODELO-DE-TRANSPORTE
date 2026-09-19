@@ -1,28 +1,15 @@
 #!/usr/bin/env python3
-# -*- coding: utf-8 -*-
-"""
-Comprobaciones del solucionador.
-
-Verifica dos cosas:
-  1. Que los tres métodos reproducen los totales obtenidos a mano
-     en las hojas de trabajo del grupo.
-  2. Que las soluciones son factibles: respetan ofertas y demandas.
-
-Uso:  python3 python/pruebas.py
-"""
-
 import os
 import sys
 
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 
-from transporte import (  # noqa: E402
+from transporte import (
     DATOS_POR_DEFECTO, cargar_datos, costo_minimo, esquina_noroeste, vogel,
 )
 
 TOLERANCIA = 0.005
 fallos = []
-
 
 def comprobar(condicion, descripcion, detalle=""):
     estado = "OK  " if condicion else "FALLA"
@@ -30,9 +17,7 @@ def comprobar(condicion, descripcion, detalle=""):
     if not condicion:
         fallos.append(descripcion)
 
-
 def factible(r, ofertas, demandas):
-    """Comprueba que cada fila entrega su oferta y cada columna recibe su demanda."""
     for i, oferta in enumerate(ofertas):
         enviado = sum(v or 0 for v in r.asignacion[i])
         if abs(enviado - oferta) > TOLERANCIA:
@@ -42,7 +27,6 @@ def factible(r, ofertas, demandas):
         if abs(recibido - demanda) > TOLERANCIA:
             return False, "columna {} recibe {} y su demanda es {}".format(j + 1, recibido, demanda)
     return True, ""
-
 
 def main():
     datos = cargar_datos(DATOS_POR_DEFECTO)
@@ -86,7 +70,6 @@ def main():
                   "El costo total cuadra al recalcularlo desde la matriz")
         print()
 
-    # Un problema desbalanceado debe completarse con una línea ficticia.
     print("Problema desbalanceado (caso extra):")
     desbalanceado = {
         "origenes": ["A", "B"], "destinos": ["X", "Y"],
@@ -105,7 +88,6 @@ def main():
         return 1
     print("RESULTADO: todas las comprobaciones pasaron.")
     return 0
-
 
 if __name__ == "__main__":
     raise SystemExit(main())

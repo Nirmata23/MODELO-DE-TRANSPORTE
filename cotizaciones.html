@@ -3,12 +3,12 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Costo Mínimo · GuateNet</title>
-<meta name="description" content="Solución inicial del modelo de transporte de GuateNet por el método de Costo Mínimo.">
+<title>Cotizaciones · GuateNet</title>
+<meta name="description" content="Cotizaciones y modalidades de envío de las seis empresas de paquetería con las que trabaja GuateNet.">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='9' fill='%232f5bea'/%3E%3Cpath d='M16 10.5v5M16 15.5l-5 5.5M16 15.5l5 5.5' stroke='white' stroke-width='1.7' stroke-linecap='round' fill='none'/%3E%3Ccircle cx='16' cy='9' r='2.5' fill='white'/%3E%3Ccircle cx='10.5' cy='22.5' r='2.5' fill='white'/%3E%3Ccircle cx='21.5' cy='22.5' r='2.5' fill='white'/%3E%3C/svg%3E">
 <link rel="stylesheet" href="assets/css/estilos.css">
 </head>
-<body data-base="" data-metodo="costoMinimo">
+<body data-base="">
 
 <header class="barra">
   <div class="envoltura">
@@ -17,10 +17,10 @@
       <a href="empresa.html">Empresa</a>
       <a href="planteamiento.html">Planteamiento</a>
       <a href="esquina-noroeste.html">Noroeste</a>
-      <a href="costo-minimo.html" aria-current="page">Costo mínimo</a>
+      <a href="costo-minimo.html">Costo mínimo</a>
       <a href="vogel.html">Vogel</a>
       <a href="comparacion.html">Comparación</a>
-      <a href="cotizaciones.html">Cotizaciones</a>
+      <a href="cotizaciones.html" aria-current="page">Cotizaciones</a>
       <a href="calculadora.html">Calculadora</a>
       <a href="documentacion.html">Documentación</a>
       <button class="boton-tema" type="button" aria-label="Cambiar tema">☾</button>
@@ -32,56 +32,55 @@
   <section class="encabezado-item">
     <div class="envoltura">
       <a class="volver" href="index.html">← Volver a la página principal</a>
-      <h1>Método de Costo Mínimo</h1>
-      <p class="resumen">Segundo procedimiento. En cada vuelta se atiende la celda más barata que siga disponible.</p>
+      <h1>Cotizaciones y modalidades</h1>
+      <p class="resumen">Lo que cotizó cada empresa de paquetería y cómo cambia el costo total de GuateNet al elegir una modalidad distinta.</p>
     </div>
   </section>
 
   <section class="seccion">
     <div class="envoltura">
+      <div id="estado-cotizacion" class="nota">Cargando…</div>
+
       <div class="panel">
         <h3>Cómo funciona</h3>
-        <ol class="pasos">
-          <li><strong>Buscar la celda más barata</strong>
-              <span>De todas las celdas que aún no han sido tachadas, se elige la de menor costo por caja.</span></li>
-          <li><strong>Asignar lo máximo posible</strong>
-              <span>Se coloca el menor valor entre la oferta de su fila y la demanda de su columna.</span></li>
-          <li><strong>Tachar la línea agotada</strong>
-              <span>Se elimina la fila o la columna que quedó satisfecha y se actualizan los saldos.</span></li>
-          <li><strong>Repetir hasta terminar</strong>
-              <span>Se vuelve a buscar la celda más barata entre las que quedan vivas.</span></li>
-        </ol>
-        <p style="margin-top:16px;font-size:.92rem;color:var(--texto-suave)">
-           Al fijarse en los costos, casi siempre mejora bastante el resultado de la Esquina Noroeste.</p>
+        <p>Cada empresa de paquetería entregó una cotización con varias modalidades de envío.
+           La <strong>modalidad estándar</strong> es la tarifa base, la misma que se usó en el
+           planteamiento original. Las demás suben o bajan esa tarifa según el tiempo de entrega
+           y las condiciones del servicio.</p>
+        <p>Elige una modalidad por empresa y el sistema arma la nueva matriz de costos y vuelve a
+           resolver el modelo con los tres métodos.</p>
+        <div class="controles" style="margin-top:16px">
+          <button class="boton primario" type="button" id="btn-estandar">Volver a tarifas estándar</button>
+          <button class="boton" type="button" id="btn-descargar-cotizacion">Descargar cotización</button>
+        </div>
       </div>
+    </div>
+  </section>
+
+  <section class="seccion" style="padding-top:0">
+    <div class="envoltura">
+      <h2>Cotizaciones recibidas</h2>
+      <p class="intro">Seis empresas, tres modalidades cada una. El porcentaje indica cuánto sube o
+         baja la tarifa base.</p>
+      <div id="cotizaciones" class="cotizaciones"><p class="cargando">Cargando…</p></div>
     </div>
   </section>
 
   <section class="seccion">
     <div class="envoltura">
       <div class="panel">
-        <h3>Tabla de asignación</h3>
-        <p class="intro">Las celdas resaltadas son las cajas que se le entregan a cada empresa de
-           paquetería; abajo de cada una aparece el costo por caja.</p>
-        <div id="tabla-solucion"><p class="cargando">Calculando…</p></div>
-        <p style="margin:16px 0 0">Costo total del método: <span id="costo-total">…</span></p>
-        <p style="font-size:.88rem;color:var(--texto-suave);margin-top:4px">
-           Celdas básicas ocupadas: <strong data-celdas>…</strong>.</p>
+        <h3>Resumen de lo elegido</h3>
+        <div id="resumen-cotizacion"><p class="cargando">Cargando…</p></div>
       </div>
 
       <div class="panel">
-        <h3>Asignaciones en orden</h3>
-        <p class="intro">Cada línea es una asignación del método, en el orden en que se realizó.</p>
-        <div id="bitacora"><p class="cargando">Calculando…</p></div>
+        <h3>Matriz de costos resultante</h3>
+        <p class="intro">Costo por caja desde cada centro de distribución. Las celdas resaltadas
+           son las que cambiaron respecto de la cotización estándar.</p>
+        <div id="matriz-cotizada"><p class="cargando">Cargando…</p></div>
       </div>
-    </div>
-  </section>
 
-  <section class="seccion">
-    <div class="envoltura">
-      <h2>Evidencia del procedimiento</h2>
-      <p class="intro">Hojas de trabajo del grupo. Haz clic en cualquier imagen para verla completa.</p>
-      <div data-galeria="costo-minimo"></div>
+      <div id="resultados"></div>
     </div>
   </section>
 </main>
@@ -97,6 +96,6 @@
 <script src="assets/js/config.js"></script>
 <script src="assets/js/transporte.js"></script>
 <script src="assets/js/interfaz.js"></script>
-<script src="assets/js/galeria.js"></script>
+<script src="assets/js/cotizaciones.js"></script>
 </body>
 </html>

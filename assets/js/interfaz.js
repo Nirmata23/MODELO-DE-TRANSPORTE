@@ -1,16 +1,11 @@
-/* ===========================================================
-   interfaz.js — piezas compartidas por todas las páginas:
-   cambio de tema, carga de datos y dibujado de tablas.
-   =========================================================== */
 (function () {
   "use strict";
 
   var f = function (n) { return window.Transporte.formatear(n); };
 
-  /* ---------- Tema claro / oscuro ---------- */
   function iniciarTema() {
     var guardado = null;
-    try { guardado = localStorage.getItem("tema"); } catch (e) { /* modo privado */ }
+    try { guardado = localStorage.getItem("tema"); } catch (e) {  }
     if (guardado) { document.documentElement.setAttribute("data-tema", guardado); }
 
     var boton = document.querySelector(".boton-tema");
@@ -30,12 +25,11 @@
       else if (actual === "claro") { nuevo = "oscuro"; }
       else { nuevo = window.matchMedia("(prefers-color-scheme: dark)").matches ? "claro" : "oscuro"; }
       document.documentElement.setAttribute("data-tema", nuevo);
-      try { localStorage.setItem("tema", nuevo); } catch (e) { /* modo privado */ }
+      try { localStorage.setItem("tema", nuevo); } catch (e) {  }
       pintarIcono();
     });
   }
 
-  /* ---------- Datos del problema ---------- */
   var promesaDatos = null;
   function cargarDatos() {
     if (!promesaDatos) {
@@ -48,7 +42,6 @@
     return promesaDatos;
   }
 
-  /* ---------- Tabla del planteamiento ---------- */
   function tablaPlanteamiento(d) {
     var u = d.unidad || "";
     var h = '<div class="tabla-scroll"><table class="matriz"><thead><tr><th>' +
@@ -67,7 +60,6 @@
     return h;
   }
 
-  /* ---------- Tabla de la solución ---------- */
   function tablaSolucion(r, unidad) {
     var u = unidad || "";
     var h = '<div class="tabla-scroll"><table class="matriz"><thead><tr><th>Origen</th>';
@@ -81,7 +73,7 @@
           h += '<td class="asignada">' + f(v) +
                '<span class="costo-celda">' + u + f(r.costos[i][j]) + "</span></td>";
         } else if (v !== null) {
-          // Celda básica degenerada: entra en la base aunque reciba cero unidades.
+
           h += '<td class="asignada cero" title="Celda básica con asignación cero (degeneración)">0' +
                '<span class="costo-celda">' + u + f(r.costos[i][j]) + "</span></td>";
         } else {
@@ -96,7 +88,6 @@
     return h;
   }
 
-  /* ---------- Bitácora de asignaciones ---------- */
   function bitacora(r, unidad) {
     var u = unidad || "";
     var h = '<div class="bitacora">';
@@ -112,7 +103,6 @@
     return h;
   }
 
-  /* ---------- Página de un método ---------- */
   function iniciarPaginaMetodo() {
     var cuerpo = document.body;
     var metodo = cuerpo.getAttribute("data-metodo");

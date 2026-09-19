@@ -9,7 +9,6 @@
     "descripcion": "GuateNet abastece a instaladores y proveedores de internet de todo el país con equipo de red: routers, switches, access points, cable UTP, conectores RJ45, patch panels, racks y herramienta de ponchado. La mercadería sale de cinco centros de distribución y se entrega por medio de seis empresas de paquetería con las que hay capacidad contratada cada semana.",
     "ficticia": true
   },
-
   "titulo": "GuateNet · Asignación semanal de envíos a las empresas de paquetería",
   "descripcion": "Cada semana los cinco centros de distribución de GuateNet despachan 150 cajas estándar de equipo de red. Cada celda es el costo en quetzales de mover una caja desde ese centro por medio de esa empresa de paquetería.",
   "unidad": "Q",
@@ -17,19 +16,78 @@
   "periodo": "semana",
   "rotuloOrigenes": "Centro de distribución",
   "rotuloDestinos": "Empresa de paquetería",
-
-  "origenes": ["Guatemala", "Chimaltenango", "Sacatepéquez", "Petén", "Jalapa"],
-  "destinos": ["Forza", "Guatex", "Envía Guatemala", "Cargo Express", "Telomando", "Henma Express"],
-  "costos": [
-    [57.50, 63.00, 25.00, 38.50, 74.00, 50.00],
-    [65.50, 63.00, 55.00, 53.50, 72.01, 75.00],
-    [65.50, 63.00, 55.00, 53.50, 72.50, 50.00],
-    [83.50, 88.00, 95.00, 75.50, 72.01, 100.00],
-    [69.50, 68.00, 85.00, 60.50, 72.01, 90.00]
+  "origenes": [
+    "Guatemala",
+    "Chimaltenango",
+    "Sacatepéquez",
+    "Petén",
+    "Jalapa"
   ],
-  "ofertas": [30, 40, 35, 25, 20],
-  "demandas": [20, 25, 15, 30, 35, 25],
-
+  "destinos": [
+    "Forza",
+    "Guatex",
+    "Envía Guatemala",
+    "Cargo Express",
+    "Telomando",
+    "Henma Express"
+  ],
+  "costos": [
+    [
+      57.5,
+      63.0,
+      25.0,
+      38.5,
+      74.0,
+      50.0
+    ],
+    [
+      65.5,
+      63.0,
+      55.0,
+      53.5,
+      72.01,
+      75.0
+    ],
+    [
+      65.5,
+      63.0,
+      55.0,
+      53.5,
+      72.5,
+      50.0
+    ],
+    [
+      83.5,
+      88.0,
+      95.0,
+      75.5,
+      72.01,
+      100.0
+    ],
+    [
+      69.5,
+      68.0,
+      85.0,
+      60.5,
+      72.01,
+      90.0
+    ]
+  ],
+  "ofertas": [
+    30,
+    40,
+    35,
+    25,
+    20
+  ],
+  "demandas": [
+    20,
+    25,
+    15,
+    30,
+    35,
+    25
+  ],
   "detalleOrigenes": [
     {
       "sede": "Bodega central, zona 12",
@@ -57,33 +115,266 @@
       "nota": "Centro pequeño pero constante, abastece proyectos municipales de fibra."
     }
   ],
-
   "detalleDestinos": [
-    { "cobertura": "Cobertura nacional con entrega en 24 a 48 horas", "contrato": "Capacidad contratada por semana" },
-    { "cobertura": "Red amplia en occidente y en el altiplano", "contrato": "Capacidad contratada por semana" },
-    { "cobertura": "Fuerte en el área metropolitana y central", "contrato": "Capacidad contratada por semana" },
-    { "cobertura": "Cobertura nacional, maneja bien la carga voluminosa", "contrato": "Capacidad contratada por semana" },
-    { "cobertura": "Especializada en rutas largas hacia el norte y el oriente", "contrato": "Capacidad contratada por semana" },
-    { "cobertura": "Entrega en cabeceras departamentales", "contrato": "Capacidad contratada por semana" }
+    {
+      "cobertura": "Cobertura nacional con entrega en 24 a 48 horas",
+      "contrato": "Capacidad contratada por semana"
+    },
+    {
+      "cobertura": "Red amplia en occidente y en el altiplano",
+      "contrato": "Capacidad contratada por semana"
+    },
+    {
+      "cobertura": "Fuerte en el área metropolitana y central",
+      "contrato": "Capacidad contratada por semana"
+    },
+    {
+      "cobertura": "Cobertura nacional, maneja bien la carga voluminosa",
+      "contrato": "Capacidad contratada por semana"
+    },
+    {
+      "cobertura": "Especializada en rutas largas hacia el norte y el oriente",
+      "contrato": "Capacidad contratada por semana"
+    },
+    {
+      "cobertura": "Entrega en cabeceras departamentales",
+      "contrato": "Capacidad contratada por semana"
+    }
   ],
-
   "catalogo": [
-    { "codigo": "GN-RT-1200",  "producto": "Router empresarial dual band",          "categoria": "Conectividad", "precio": 1250.00, "porCaja": 6 },
-    { "codigo": "GN-SW-2400",  "producto": "Switch administrable 24 puertos Gigabit","categoria": "Conmutación",  "precio": 3400.00, "porCaja": 2 },
-    { "codigo": "GN-SW-0800",  "producto": "Switch no administrable 8 puertos",      "categoria": "Conmutación",  "precio": 640.00,  "porCaja": 10 },
-    { "codigo": "GN-AP-WF6",   "producto": "Access point Wi-Fi 6 para techo",        "categoria": "Conectividad", "precio": 1150.00, "porCaja": 8 },
-    { "codigo": "GN-ONT-GPON", "producto": "ONT GPON para fibra óptica",             "categoria": "Fibra óptica", "precio": 620.00,  "porCaja": 12 },
-    { "codigo": "GN-UTP-C6",   "producto": "Cable UTP Cat6, caja de 305 m",          "categoria": "Cableado",     "precio": 950.00,  "porCaja": 1 },
-    { "codigo": "GN-RJ45-100", "producto": "Conectores RJ45 Cat6, bolsa de 100",     "categoria": "Cableado",     "precio": 180.00,  "porCaja": 40 },
-    { "codigo": "GN-PP-24",    "producto": "Patch panel 24 puertos Cat6",            "categoria": "Cableado",     "precio": 480.00,  "porCaja": 6 },
-    { "codigo": "GN-RK-9U",    "producto": "Rack de pared 9U",                       "categoria": "Infraestructura", "precio": 1380.00, "porCaja": 2 },
-    { "codigo": "GN-UPS-1000", "producto": "UPS 1000 VA / 600 W",                    "categoria": "Energía",      "precio": 890.00,  "porCaja": 4 },
-    { "codigo": "GN-HR-PT",    "producto": "Kit ponchadora con tester de red",        "categoria": "Herramienta",  "precio": 320.00,  "porCaja": 15 }
+    {
+      "codigo": "GN-RT-1200",
+      "producto": "Router empresarial dual band",
+      "categoria": "Conectividad",
+      "precio": 1250.0,
+      "porCaja": 6
+    },
+    {
+      "codigo": "GN-SW-2400",
+      "producto": "Switch administrable 24 puertos Gigabit",
+      "categoria": "Conmutación",
+      "precio": 3400.0,
+      "porCaja": 2
+    },
+    {
+      "codigo": "GN-SW-0800",
+      "producto": "Switch no administrable 8 puertos",
+      "categoria": "Conmutación",
+      "precio": 640.0,
+      "porCaja": 10
+    },
+    {
+      "codigo": "GN-AP-WF6",
+      "producto": "Access point Wi-Fi 6 para techo",
+      "categoria": "Conectividad",
+      "precio": 1150.0,
+      "porCaja": 8
+    },
+    {
+      "codigo": "GN-ONT-GPON",
+      "producto": "ONT GPON para fibra óptica",
+      "categoria": "Fibra óptica",
+      "precio": 620.0,
+      "porCaja": 12
+    },
+    {
+      "codigo": "GN-UTP-C6",
+      "producto": "Cable UTP Cat6, caja de 305 m",
+      "categoria": "Cableado",
+      "precio": 950.0,
+      "porCaja": 1
+    },
+    {
+      "codigo": "GN-RJ45-100",
+      "producto": "Conectores RJ45 Cat6, bolsa de 100",
+      "categoria": "Cableado",
+      "precio": 180.0,
+      "porCaja": 40
+    },
+    {
+      "codigo": "GN-PP-24",
+      "producto": "Patch panel 24 puertos Cat6",
+      "categoria": "Cableado",
+      "precio": 480.0,
+      "porCaja": 6
+    },
+    {
+      "codigo": "GN-RK-9U",
+      "producto": "Rack de pared 9U",
+      "categoria": "Infraestructura",
+      "precio": 1380.0,
+      "porCaja": 2
+    },
+    {
+      "codigo": "GN-UPS-1000",
+      "producto": "UPS 1000 VA / 600 W",
+      "categoria": "Energía",
+      "precio": 890.0,
+      "porCaja": 4
+    },
+    {
+      "codigo": "GN-HR-PT",
+      "producto": "Kit ponchadora con tester de red",
+      "categoria": "Herramienta",
+      "precio": 320.0,
+      "porCaja": 15
+    }
   ],
-
   "resultadosEsperados": {
-    "Esquina Noroeste": 9982.70,
+    "Esquina Noroeste": 9982.7,
     "Costo Mínimo": 8450.35,
     "Aproximación de Vogel": 8450.35
-  }
+  },
+  "cotizaciones": [
+    {
+      "empresa": "Forza",
+      "vigencia": "Vigente 30 días",
+      "resumen": "Cobertura nacional con entrega en 24 a 48 horas.",
+      "modalidades": [
+        {
+          "nombre": "Estándar terrestre",
+          "tiempo": "3 a 5 días hábiles",
+          "factor": 1.0,
+          "nota": "Tarifa base de la cotización"
+        },
+        {
+          "nombre": "Express 24 horas",
+          "tiempo": "24 horas",
+          "factor": 1.38,
+          "nota": "Solo cabeceras departamentales"
+        },
+        {
+          "nombre": "Consolidado semanal",
+          "tiempo": "6 a 8 días hábiles",
+          "factor": 0.86,
+          "nota": "Mínimo 15 cajas por despacho"
+        }
+      ]
+    },
+    {
+      "empresa": "Guatex",
+      "vigencia": "Vigente 30 días",
+      "resumen": "Red amplia en occidente y en el altiplano.",
+      "modalidades": [
+        {
+          "nombre": "Estándar terrestre",
+          "tiempo": "3 a 4 días hábiles",
+          "factor": 1.0,
+          "nota": "Tarifa base de la cotización"
+        },
+        {
+          "nombre": "Entrega a domicilio",
+          "tiempo": "4 a 6 días hábiles",
+          "factor": 1.16,
+          "nota": "Incluye última milla en el municipio"
+        },
+        {
+          "nombre": "Retiro en agencia",
+          "tiempo": "3 a 5 días hábiles",
+          "factor": 0.91,
+          "nota": "El cliente recoge en la agencia más cercana"
+        }
+      ]
+    },
+    {
+      "empresa": "Envía Guatemala",
+      "vigencia": "Vigente 15 días",
+      "resumen": "Fuerte en el área metropolitana y central.",
+      "modalidades": [
+        {
+          "nombre": "Estándar terrestre",
+          "tiempo": "2 a 3 días hábiles",
+          "factor": 1.0,
+          "nota": "Tarifa base de la cotización"
+        },
+        {
+          "nombre": "Entrega el mismo día",
+          "tiempo": "Mismo día",
+          "factor": 1.52,
+          "nota": "Solo dentro del área metropolitana"
+        },
+        {
+          "nombre": "Consolidado quincenal",
+          "tiempo": "8 a 10 días hábiles",
+          "factor": 0.82,
+          "nota": "Se despacha dos veces al mes"
+        }
+      ]
+    },
+    {
+      "empresa": "Cargo Express",
+      "vigencia": "Vigente 30 días",
+      "resumen": "Cobertura nacional, maneja bien la carga voluminosa.",
+      "modalidades": [
+        {
+          "nombre": "Estándar terrestre",
+          "tiempo": "3 a 5 días hábiles",
+          "factor": 1.0,
+          "nota": "Tarifa base de la cotización"
+        },
+        {
+          "nombre": "Carga paletizada",
+          "tiempo": "5 a 7 días hábiles",
+          "factor": 0.89,
+          "nota": "Mínimo 20 cajas por tarima"
+        },
+        {
+          "nombre": "Express con seguro",
+          "tiempo": "48 horas",
+          "factor": 1.31,
+          "nota": "Incluye seguro de mercadería"
+        }
+      ]
+    },
+    {
+      "empresa": "Telomando",
+      "vigencia": "Vigente 45 días",
+      "resumen": "Especializada en rutas largas hacia el norte y el oriente.",
+      "modalidades": [
+        {
+          "nombre": "Estándar terrestre",
+          "tiempo": "4 a 6 días hábiles",
+          "factor": 1.0,
+          "nota": "Tarifa base de la cotización"
+        },
+        {
+          "nombre": "Ruta directa al norte",
+          "tiempo": "3 días hábiles",
+          "factor": 1.24,
+          "nota": "Sin trasiego en bodega intermedia"
+        },
+        {
+          "nombre": "Consolidado de ruta",
+          "tiempo": "7 a 9 días hábiles",
+          "factor": 0.88,
+          "nota": "Se agrupa con carga de otros clientes"
+        }
+      ]
+    },
+    {
+      "empresa": "Henma Express",
+      "vigencia": "Vigente 30 días",
+      "resumen": "Entrega en cabeceras departamentales.",
+      "modalidades": [
+        {
+          "nombre": "Estándar terrestre",
+          "tiempo": "3 a 5 días hábiles",
+          "factor": 1.0,
+          "nota": "Tarifa base de la cotización"
+        },
+        {
+          "nombre": "Entrega en cabecera",
+          "tiempo": "2 a 4 días hábiles",
+          "factor": 1.09,
+          "nota": "Entrega directa en la cabecera"
+        },
+        {
+          "nombre": "Flete pagado en destino",
+          "tiempo": "4 a 6 días hábiles",
+          "factor": 0.94,
+          "nota": "El destinatario cubre el flete"
+        }
+      ]
+    }
+  ]
 }

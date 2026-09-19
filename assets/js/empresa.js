@@ -1,8 +1,3 @@
-/* ===========================================================
-   empresa.js — arma las tablas de la ficha de la empresa
-   (catálogo, centros de distribución y paqueterías) a partir
-   de datos.json, para que nada quede escrito a mano en el HTML.
-   =========================================================== */
 (function () {
   "use strict";
 
@@ -70,7 +65,6 @@
     return h;
   }
 
-  /* Cifras que resumen la operación, para la portada. */
   function pintarCifras(contenedor, d) {
     var totalCajas = d.ofertas.reduce(function (a, b) { return a + b; }, 0);
     var mejor = Math.min.apply(null, window.Transporte.resolverTodos(d).map(function (r) {

@@ -1,14 +1,3 @@
-/* ===========================================================
-   galeria.js — muestra sola las imágenes de una carpeta.
-
-   Pregunta a la API pública de GitHub qué archivos hay dentro de
-   imagenes/<sección>/ y los pinta. Así, para agregar una foto sólo
-   hay que subirla a esa carpeta del repositorio: no se toca código.
-
-   Si la API no responde (sin internet, límite de peticiones, o el
-   sitio abierto desde el disco), usa imagenes/<sección>/lista.json
-   como respaldo.
-   =========================================================== */
 (function () {
   "use strict";
 
@@ -18,7 +7,6 @@
     return a.name.localeCompare(b.name, "es", { numeric: true, sensitivity: "base" });
   }
 
-  /** "03-paso-3.jpg" -> "Paso 3" */
   function titulo(nombreArchivo) {
     return nombreArchivo
       .replace(EXTENSIONES, "")
@@ -61,7 +49,6 @@
       });
   }
 
-  /* ---------- Visor a pantalla completa ---------- */
   var visor = null, imagenes = [], indiceActual = 0;
 
   function crearVisor() {
@@ -114,7 +101,6 @@
     mostrar(i);
   }
 
-  /* ---------- Render ---------- */
   function pintar(contenedor, lista, seccion) {
     if (!lista.length) {
       contenedor.innerHTML =

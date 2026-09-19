@@ -1,23 +1,4 @@
 #!/usr/bin/env python3
-# -*- coding: utf-8 -*-
-"""
-Modelo de transporte: métodos de solución inicial.
-
-Implementa los tres procedimientos vistos en clase:
-
-    * Esquina Noroeste
-    * Costo Mínimo
-    * Aproximación de Vogel
-
-Lee el planteamiento desde datos.json (el mismo archivo que usa la
-página web) para que la consola y el navegador nunca se contradigan.
-
-Uso:
-    python3 python/transporte.py
-    python3 python/transporte.py --metodo vogel
-    python3 python/transporte.py --datos otros_datos.json --json
-"""
-
 from __future__ import annotations
 
 import argparse
@@ -31,13 +12,8 @@ EPS = 1e-9
 RAIZ = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 DATOS_POR_DEFECTO = os.path.join(RAIZ, "datos.json")
 
-
-# --------------------------------------------------------------------------- #
-#  Estructuras
-# --------------------------------------------------------------------------- #
 @dataclass
 class Paso:
-    """Una asignación individual hecha por el método."""
     numero: int
     fila: int
     columna: int
@@ -50,7 +26,6 @@ class Paso:
     @property
     def subtotal(self) -> float:
         return self.cantidad * self.costo_unitario
-
 
 @dataclass
 class Resultado:
@@ -96,12 +71,7 @@ class Resultado:
             ],
         }
 
-
-# --------------------------------------------------------------------------- #
-#  Preparación
-# --------------------------------------------------------------------------- #
 def balancear(datos: Dict) -> Dict:
-    """Agrega un origen o un destino ficticio si la oferta y la demanda no coinciden."""
     origenes = list(datos["origenes"])
     destinos = list(datos["destinos"])
     costos = [list(fila) for fila in datos["costos"]]
@@ -130,9 +100,7 @@ def balancear(datos: Dict) -> Dict:
         "ofertas": ofertas, "demandas": demandas, "ajuste": ajuste,
     }
 
-
 class _Tablero:
-    """Lleva el control de saldos y de las filas y columnas todavía vivas."""
 
     def __init__(self, datos: Dict, metodo: str):
         b = balancear(datos)
@@ -166,8 +134,6 @@ class _Tablero:
 
         fila_agotada = self.oferta_restante[i] <= EPS
         columna_agotada = self.demanda_restante[j] <= EPS
-        # Si ambas se agotan a la vez sólo se tacha una, para no perder
-        # celdas básicas (caso degenerado).
         if fila_agotada and columna_agotada:
             if len(self.filas_vivas) > 1:
                 columna_agotada = False
@@ -194,25 +160,17 @@ class _Tablero:
             asignacion=self.asignacion, pasos=self.pasos, ajuste=self.ajuste,
         )
 
-
 def _fmt(n: float) -> str:
     return str(int(round(n))) if abs(n - round(n)) < 1e-6 else "{:.2f}".format(n)
 
-
-# --------------------------------------------------------------------------- #
-#  Métodos
-# --------------------------------------------------------------------------- #
 def esquina_noroeste(datos: Dict) -> Resultado:
-    """Avanza en escalera desde la celda superior izquierda, sin mirar costos."""
     t = _Tablero(datos, "Esquina Noroeste")
     while t.activo:
         t.asignar(t.filas_vivas[0], t.columnas_vivas[0],
                   "Esquina superior izquierda disponible")
     return t.resultado()
 
-
 def costo_minimo(datos: Dict) -> Resultado:
-    """En cada vuelta atiende la celda viva de menor costo unitario."""
     t = _Tablero(datos, "Costo Mínimo")
     while t.activo:
         i, j = min(
@@ -222,21 +180,16 @@ def costo_minimo(datos: Dict) -> Resultado:
         t.asignar(i, j, "Celda de menor costo disponible ({})".format(_fmt(t.costos[i][j])))
     return t.resultado()
 
-
 def _penalizacion(valores: List[float]) -> float:
-    """Diferencia entre los dos costos más bajos de una fila o columna."""
     if len(valores) < 2:
         return 0.0
     a, b = sorted(valores)[:2]
     return b - a
 
-
 def vogel(datos: Dict) -> Resultado:
-    """Atiende primero la fila o columna con la penalización más alta."""
     t = _Tablero(datos, "Aproximación de Vogel")
 
     while t.activo:
-        # Con una sola línea viva ya no hay penalizaciones que comparar.
         if len(t.filas_vivas) == 1 or len(t.columnas_vivas) == 1:
             if len(t.filas_vivas) == 1:
                 i = t.filas_vivas[0]
@@ -268,21 +221,15 @@ def vogel(datos: Dict) -> Resultado:
 
     return t.resultado()
 
-
 METODOS = {
     "noroeste": esquina_noroeste,
     "minimo": costo_minimo,
     "vogel": vogel,
 }
 
-
 def resolver_todos(datos: Dict) -> List[Resultado]:
     return [esquina_noroeste(datos), costo_minimo(datos), vogel(datos)]
 
-
-# --------------------------------------------------------------------------- #
-#  Salida por consola
-# --------------------------------------------------------------------------- #
 def imprimir(r: Resultado, unidad: str = "") -> None:
     ancho = max(14, max(len(o) for o in r.origenes) + 2)
     columnas = [d[:11] for d in r.destinos]
@@ -304,8 +251,6 @@ def imprimir(r: Resultado, unidad: str = "") -> None:
         fila = origen.ljust(ancho)
         for j in range(len(r.destinos)):
             v = r.asignacion[i][j]
-            # Una celda básica con cero unidades (degeneración) se muestra como 0,
-            # no como vacía, para que cuadre con el conteo de celdas básicas.
             fila += ("·" if v is None else _fmt(v)).rjust(12)
         fila += _fmt(r.ofertas[i]).rjust(10)
         print(fila)
@@ -326,11 +271,9 @@ def imprimir(r: Resultado, unidad: str = "") -> None:
     print("  Celdas básicas ocupadas: {} de {}".format(len(r.pasos), r.celdas_requeridas))
     print("  COSTO TOTAL: {}{:,.2f}".format(unidad, r.costo_total))
 
-
 def cargar_datos(ruta: str) -> Dict:
     with open(ruta, encoding="utf-8") as fh:
         return json.load(fh)
-
 
 def main(argv: Optional[List[str]] = None) -> int:
     ap = argparse.ArgumentParser(description="Resuelve un modelo de transporte.")
@@ -380,7 +323,6 @@ def main(argv: Optional[List[str]] = None) -> int:
         print()
 
     return 0
-
 
 if __name__ == "__main__":
     raise SystemExit(main())
